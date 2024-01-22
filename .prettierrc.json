@@ -7,10 +7,10 @@
   "jsxSingleQuote": true,
   "trailingComma": "es5",
   "bracketSpacing": true,
-  "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindConfig": "./tailwind.config.ts",
-
   "bracketSameLine": true,
   "arrowParens": "always",
-  "proseWrap": "always"
+  "proseWrap": "always",
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindConfig": "./tailwind.config.ts",
+  "tailwindFunctions": ["clsx"]
 }

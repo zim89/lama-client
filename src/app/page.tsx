@@ -1,3 +1,3 @@
 export default function Home() {
-  return <main>Main content</main>;
+  return <h2 className={'text-violet-100'}>Main content</h2>;
 }
