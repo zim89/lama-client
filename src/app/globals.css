@@ -1,4 +1,6 @@
 @import '@mantine/core/styles.css';
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
 
 @tailwind base;
 @tailwind components;
@@ -27,6 +29,15 @@
   .actionBtn {
     @apply flex h-11 w-11 items-center justify-center text-gray-900 transition-colors duration-300 hover:text-violet-500;
   }
+
+  .btn {
+    @apply cursor-pointer whitespace-nowrap rounded-[100px] border border-gray-700 bg-violet-300 px-5 py-4 text-lg/none font-medium text-gray-900;
+  }
 }
 
 /**************************/
+.brandsSlider .slick-list {
+}
+.brandsSlider .slick-track {
+  @apply flex justify-between before:hidden after:hidden;
+}
