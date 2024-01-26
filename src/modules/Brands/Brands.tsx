@@ -34,6 +34,7 @@ export default function Brands() {
             </div>
           ))}
         </Slider>
+        <button className={'btn btn-primary'}></button>
       </div>
     </div>
   );

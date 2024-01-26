@@ -31,8 +31,13 @@
   }
 
   .btn {
-    @apply cursor-pointer whitespace-nowrap rounded-[100px] border border-gray-700 bg-violet-300 px-5 py-4 text-lg/none font-medium text-gray-900;
+
   }
+
+  .btn-primary {
+  }
+
+  .btn-secondary
 }
 
 /**************************/
