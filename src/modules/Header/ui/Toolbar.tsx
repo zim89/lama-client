@@ -1,5 +1,5 @@
 import React from 'react';
-import { BurgerIcon, SearchIcon } from '@/components/Icons';
+import { BurgerIcon, SearchIcon } from '../../../components/icons';
 
 export default function Toolbar() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
-import HeartIcon from '@/components/Icons/HeartIcon';
-import { BasketIcon, UserIcon } from '@/components/Icons';
+import HeartIcon from '@/components/icons/HeartIcon';
+import { BasketIcon, UserIcon } from '../../../components/icons';
 
 export default function UserMenu() {
   return (
