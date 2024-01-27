@@ -1,10 +1,8 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
-import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 
 import './globals.css';
-import theme from '@/shared/config/theme';
 import Header from '@/modules/Header';
 import Footer from '@/modules/Footer';
 
@@ -27,15 +25,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <head>
-        <ColorSchemeScript />
-      </head>
       <body className={`${montserrat.variable}`}>
-        <MantineProvider theme={theme}>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </MantineProvider>
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

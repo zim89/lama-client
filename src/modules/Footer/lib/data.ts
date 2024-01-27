@@ -8,7 +8,11 @@ import mastercardImg from '@/assets/images/additional/mastercard.png';
 import applePayImg from '@/assets/images/additional/payApple.png';
 import googlePayImg from '@/assets/images/additional/payGoogle.png';
 
-import { TiktokIcon, InstagramIcon, FacebookIcon } from '@/components/Icons';
+import {
+  TiktokIcon,
+  InstagramIcon,
+  FacebookIcon,
+} from '../../../components/icons';
 
 export const featureList = [
   {

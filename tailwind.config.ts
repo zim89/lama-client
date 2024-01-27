@@ -1,11 +1,13 @@
 import type { Config } from 'tailwindcss';
 
-const config: Config = {
+const config = {
+  darkMode: ['class'],
   content: [
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/modules/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  prefix: '',
   theme: {
     screens: {
       xs: '375px',
@@ -50,15 +52,26 @@ const config: Config = {
       'yellow-500': '#F6F689',
     },
     extend: {
-      strokeWidth: {
-        '1.5': '1.5px',
-      },
       fontFamily: {
         montserrat: ['var(--font-montserrat)', 'sans-serif'],
       },
-      backgroundImage: {},
+      keyframes: {
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
+      },
     },
   },
-  plugins: [],
-};
+  plugins: [require('tailwindcss-animate')],
+} satisfies Config;
+
 export default config;
