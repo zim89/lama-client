@@ -6,6 +6,8 @@ import UserIcon from './UserIcon';
 import TiktokIcon from './TiktokIcon';
 import InstagramIcon from './InstagramIcon';
 import FacebookIcon from './FacebookIcon';
+import BoyIcon from './BoyIcon';
+import GirlIcon from './GirlIcon';
 
 export {
   BurgerIcon,
@@ -16,4 +18,6 @@ export {
   TiktokIcon,
   InstagramIcon,
   FacebookIcon,
+  BoyIcon,
+  GirlIcon,
 };
