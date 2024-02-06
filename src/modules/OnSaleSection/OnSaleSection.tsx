@@ -3,9 +3,8 @@ import {
   HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query';
-
 import OnSaleList from '@/modules/OnSaleSection/ui/OnSaleList';
-import { findAllOnSaleProducts } from '@/shared/api/product-api';
+import { fetchOnSaleProducts } from '@/shared/api/product-api';
 import { queryKeys } from '@/shared/lib/constats';
 
 export default async function OnSaleSection() {
@@ -13,7 +12,7 @@ export default async function OnSaleSection() {
 
   await queryClient.prefetchQuery({
     queryKey: [queryKeys.SALE],
-    queryFn: findAllOnSaleProducts,
+    queryFn: fetchOnSaleProducts,
   });
 
   return (

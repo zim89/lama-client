@@ -5,7 +5,7 @@ import {
 } from '@tanstack/react-query';
 
 import TopList from '@/modules/TopSection/ui/TopList';
-import { findAllTopProducts } from '@/shared/api/product-api';
+import { fetchTopProducts } from '@/shared/api/product-api';
 import { queryKeys } from '@/shared/lib/constats';
 
 export default async function TopSection() {
@@ -13,7 +13,7 @@ export default async function TopSection() {
 
   await queryClient.prefetchQuery({
     queryKey: [queryKeys.TOP],
-    queryFn: findAllTopProducts,
+    queryFn: fetchTopProducts,
   });
 
   return (
