@@ -3,7 +3,7 @@ import { featureList, payList, socialList } from '@/modules/Footer/lib/data';
 import Image from 'next/image';
 
 import FooterAccordion from './ui/FooterAccordion';
-import logoImg from '@/assets/images/logo/logo-footer.png';
+// import logoImg from '@/assets/images/logo/logo-footer.png';
 
 export default function Footer() {
   return (
@@ -21,13 +21,13 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-          <Image
-            src={logoImg}
-            alt={'Lama logo'}
-            width={51}
-            height={26}
-            className={'mx-auto my-7'}
-          />
+          {/*<Image*/}
+          {/*  src={logoImg}*/}
+          {/*  alt={'Lama logo'}*/}
+          {/*  width={51}*/}
+          {/*  height={26}*/}
+          {/*  className={'mx-auto my-7'}*/}
+          {/*/>*/}
         </div>
 
         <FooterAccordion />

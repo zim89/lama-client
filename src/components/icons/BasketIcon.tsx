@@ -1,23 +1,15 @@
-import React from 'react';
-import { IconProps } from '@/shared/types/types';
-
-export default function BasketIcon({
-  width = '16',
-  height = '16',
-  stroke = '1.5',
-  fill = 'none',
-}: IconProps) {
+export default function BasketIcon() {
   return (
     <svg
-      width={width}
-      height={height}
-      viewBox='0 0 16 16'
-      fill={fill}
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
       xmlns='http://www.w3.org/2000/svg'>
       <path
-        d='M5.08333 4.04348C5.08333 3.2363 5.39062 2.46218 5.93761 1.89141C6.48459 1.32065 7.22645 1 8 1C8.77355 1 9.51541 1.32065 10.0624 1.89141C10.6094 2.46218 10.9167 3.2363 10.9167 4.04348M1.58333 4.04348H14.4167C14.7388 4.04348 15 4.316 15 4.65217V14.3913C15 14.7275 14.7388 15 14.4167 15H1.58333C1.26117 15 1 14.7275 1 14.3913V4.65217C1 4.316 1.26117 4.04348 1.58333 4.04348Z'
-        stroke={'currentColor'}
-        strokeWidth={stroke}
+        d='M7.83333 6.34783C7.83333 5.19471 8.27232 4.08882 9.05372 3.27345C9.83512 2.45807 10.8949 2 12 2C13.1051 2 14.1649 2.45807 14.9463 3.27345C15.7277 4.08882 16.1667 5.19471 16.1667 6.34783M2.83333 6.34783H21.1667C21.6269 6.34783 22 6.73714 22 7.21739V21.1304C22 21.6107 21.6269 22 21.1667 22H2.83333C2.3731 22 2 21.6107 2 21.1304V7.21739C2 6.73714 2.3731 6.34783 2.83333 6.34783Z'
+        stroke='currentColor'
+        strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'
       />
