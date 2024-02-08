@@ -1,5 +1,7 @@
-import Hero from '@/modules/Hero';
 import Brands from '@/modules/Brands';
+import Hero from '@/modules/Hero';
+import News from '@/modules/News/News';
+import Toddler from '@/modules/Toddler/Toddler';
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
 
       <Hero />
       <Brands />
+      <News />
+      <Toddler />
     </>
   );
 }
