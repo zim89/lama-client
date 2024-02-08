@@ -12,21 +12,21 @@
   }
 
   body {
-    @apply font-montserrat bg-gray-100 text-black;
+    @apply font-montserrat text-black;
   }
 }
 
 @layer components {
   .section {
-    @apply py-10 sm:py-[2.8125rem] md:py-[3.4375rem] lg:py-[3.75rem] xl:py-[4.9375rem];
+    @apply py-10 sm:py-11 md:py-14 lg:py-16 xl:py-20;
   }
 
   .title {
-    @apply mb-[30px] text-2xl/[1.26] font-medium sm:text-[1.75rem]/[1.2] lg:text-4xl/[1.2222];
+    @apply mb-8 text-2xl/[28px] font-medium sm:mb-10 sm:text-[28px]/[32px] md:mb-11 md:text-[32px]/[36px] lg:text-4xl/[44px] xl:mb-12;
   }
 
   .btn-primary {
-    @apply flex items-center gap-2.5 rounded-2xl border border-violet-500 bg-violet-500 px-8 py-2.5 text-lg/[1.33333] font-medium transition-colors duration-300 hover:border-violet-700 hover:bg-violet-700 active:border-black active:bg-violet-500 lg:py-3 xl:py-4;
+    @apply flex items-center gap-2.5 whitespace-nowrap rounded-2xl border border-violet-500 bg-violet-500 px-8 py-2.5 text-lg/[1.33333] font-medium transition-colors duration-300 hover:border-violet-700 hover:bg-violet-700 active:border-black active:bg-violet-500 lg:py-3 xl:py-4;
   }
 
   .btn-secondary {

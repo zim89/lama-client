@@ -1,19 +1,17 @@
 import Brands from '@/modules/Brands';
 import Hero from '@/modules/Hero';
 import News from '@/modules/News/News';
+import OnSaleSection from '@/modules/OnSaleSection';
 import Toddler from '@/modules/Toddler/Toddler';
+import TopSection from '@/modules/TopSection/TopSection';
 
 export default function Home() {
   return (
     <>
-      <div className={'container'}>
-        <h2 className={'text-violet-100 text-2xl font-bold text-black'}>
-          Home page
-        </h2>
-      </div>
-
       <Hero />
       <Brands />
+      <TopSection />
+      <OnSaleSection />
       <News />
       <Toddler />
     </>
