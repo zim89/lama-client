@@ -1,5 +1,3 @@
-import BurgerIcon from './BurgerIcon';
-import SearchIcon from './SearchIcon';
 import BasketIcon from './BasketIcon';
 import HeartIcon from './HeartIcon';
 import UserIcon from './UserIcon';
@@ -8,10 +6,12 @@ import InstagramIcon from './InstagramIcon';
 import FacebookIcon from './FacebookIcon';
 import BoyIcon from './BoyIcon';
 import GirlIcon from './GirlIcon';
+import SearchIcon from './SearchIcon';
+import HeartWithHandIcon from './HeartWithHandIcon';
+import CloseIcon from './CloseIcon';
+import ArrowRightIcon from './ArrowRightIcon';
 
 export {
-  BurgerIcon,
-  SearchIcon,
   BasketIcon,
   HeartIcon,
   UserIcon,
@@ -20,4 +20,8 @@ export {
   FacebookIcon,
   BoyIcon,
   GirlIcon,
+  SearchIcon,
+  HeartWithHandIcon,
+  CloseIcon,
+  ArrowRightIcon,
 };
