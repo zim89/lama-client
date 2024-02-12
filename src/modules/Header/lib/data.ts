@@ -39,10 +39,10 @@ export const mobileCategoryList = [
 ] as const;
 
 export const mobileAdditionalLinks = [
-  { label: 'Доставка і оплата', href: '/' },
-  { label: 'Обмін та повернення', href: '/' },
-  { label: 'Таблиці розмірів', href: '/' },
-  { label: 'Бонусна програма', href: '/' },
-  { label: 'Правила магазину', href: '/' },
-  { label: 'Зв’язатися з нами', href: '/' },
+  { label: 'Доставка і оплата', href: '/shipping&payment' },
+  { label: 'Обмін та повернення', href: '/exchange&returns' },
+  { label: 'Таблиці розмірів', href: '/sizes' },
+  { label: 'Бонусна програма', href: '/loyalty' },
+  { label: 'Правила магазину', href: '/rules' },
+  { label: 'Зв’язатися з нами', href: '/contact' },
 ] as const;

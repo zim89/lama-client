@@ -44,9 +44,8 @@ export default function Header() {
                 <Link href={'/loyalty'}>Бонусна програма</Link>
               </li>
               <li>
-                {/* FIXME: Add correct route*/}
                 <Link
-                  href={'/catalog'}
+                  href={'/small-clothes'}
                   className='btn-icon flex items-center gap-1'>
                   <HeartWithHandIcon />
                   <span className='text-black'>Є речі, з яких виросли?</span>
