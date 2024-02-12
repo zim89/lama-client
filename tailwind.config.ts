@@ -33,7 +33,7 @@ const config = {
       'gray-300': '#E5E5E6',
       'gray-500': '#CCCACD',
       'gray-700': '#99969C',
-      'gray-900': '#7F7C83',
+      'gray-900': '#727076',
       'violet-300': '#FAF6FD',
       'violet-500': '#CD9EFF',
       'violet-700': '#A663EE',
