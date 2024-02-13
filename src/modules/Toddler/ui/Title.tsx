@@ -10,7 +10,7 @@ type TextProps = {
 const Title: React.FC<TextProps> = (props) => {
   return (
     <div className='flex flex-row justify-between'>
-      <h1 className='font-medium xs:text-2xl	xl:text-4xl'>{props.title}</h1>
+      <h1 className='font-medium xs:text-2xl xl:text-4xl'>{props.title}</h1>
       <div className='cursor-pointe flex items-center md:pr-2 lg:pr-[0.765rem] xl:pr-4'>
         <Link
           href={'#'}
