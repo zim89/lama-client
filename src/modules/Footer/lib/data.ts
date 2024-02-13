@@ -3,16 +3,12 @@ import articleIcon from '@/assets/icons/additional/article.svg';
 import labelIcon from '@/assets/icons/additional/label.svg';
 import giftIcon from '@/assets/icons/additional/gift.svg';
 
-import visaImg from '@/assets/images/additional/visa.png';
-import mastercardImg from '@/assets/images/additional/mastercard.png';
-import applePayImg from '@/assets/images/additional/payApple.png';
-import googlePayImg from '@/assets/images/additional/payGoogle.png';
+import visaImg from '@/assets/icons/additional/payVisa.png';
+import mastercardImg from '@/assets/icons/additional/payMastercard.png';
+import applePayImg from '@/assets/icons/additional/payApple.png';
+import googlePayImg from '@/assets/icons/additional/payGoogle.png';
 
-import {
-  TiktokIcon,
-  InstagramIcon,
-  FacebookIcon,
-} from '../../../components/icons';
+import { TiktokIcon, InstagramIcon, FacebookIcon } from '@/components/icons';
 
 export const featureList = [
   {
@@ -37,28 +33,28 @@ export const featureList = [
   },
 ] as const;
 
-export const categoryList = [
-  { label: 'Дівчинка', link: '/' },
-  { label: 'Хлопчик', link: '/' },
-  { label: 'Одяг', link: '/' },
-  { label: 'Взуття', link: '/' },
-  { label: 'Аксесуари', link: '/' },
-  { label: 'Фемілі лук', link: '/' },
-  { label: 'Тематичні костюми', link: '/' },
-  { label: 'Самим маленьким', link: '/' },
-  { label: 'Шкільна форма', link: '/' },
+export const categoryLinks = [
+  { label: 'Дівчинка', href: '/catalog/girl' },
+  { label: 'Хлопчик', href: '/catalog/boy' },
+  { label: 'Одяг', href: '/catalog/clothes' },
+  { label: 'Взуття', href: '/catalog/clothes' },
+  { label: 'Аксесуари', href: '/catalog/clothes' },
+  { label: 'Фемілі лук', href: '/catalog/clothes' },
+  { label: 'Тематичні костюми', href: '/catalog/clothes' },
+  { label: 'Самим маленьким', href: '/catalog/clothes' },
+  { label: 'Шкільна форма', href: '/catalog/clothes' },
 ] as const;
 
-export const serviceList = [
-  { label: 'Доставка і оплата', link: '/' },
-  { label: 'Обмін та повернення', link: '/' },
-  { label: 'Таблиці розмірів', link: '/' },
-  { label: 'Бонусна програма', link: '/' },
-  { label: 'Правила магазину', link: '/' },
-  { label: 'Зв’язатися з нами', link: '/' },
+export const serviceLinks = [
+  { label: 'Доставка і оплата', href: '/shipping&payment' },
+  { label: 'Обмін та повернення', href: '/exchange&returns' },
+  { label: 'Таблиці розмірів', href: '/sizes' },
+  { label: 'Бонусна програма', href: '/loyalty' },
+  { label: 'Правила магазину', href: '/rules' },
+  { label: 'Зв’язатися з нами', href: '/contact' },
 ] as const;
 
-export const socialList = [
+export const socialLinks = [
   {
     label: 'TikTok',
     icon: TiktokIcon,
