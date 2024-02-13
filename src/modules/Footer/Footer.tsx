@@ -1,3 +1,12 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import { cn } from '@/shared/lib/utils';
+import {
+  TruckIcon,
+  ArticleIcon,
+  LabelIcon,
+  GiftIcon,
+} from '@/components/icons';
 import {
   categoryLinks,
   featureList,
@@ -5,17 +14,7 @@ import {
   serviceLinks,
   socialLinks,
 } from '@/modules/Footer/lib/data';
-import Image from 'next/image';
-import Link from 'next/link';
-import { cn } from '@/shared/lib/utils';
-
 import FooterAccordion from './ui/FooterAccordion';
-import {
-  TruckIcon,
-  ArticleIcon,
-  LabelIcon,
-  GiftIcon,
-} from '@/components/icons';
 import logoMobileImg from '@/assets/icons/logo/logo-tablet.png';
 import logoTabletImg from '@/assets/icons/logo/logo-desktop.png';
 import styles from './styles/footer.module.css';
