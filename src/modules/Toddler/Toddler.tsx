@@ -1,63 +1,31 @@
-import Image from 'next/image';
-import arrow from '../../assets/icons/additional/arrow.svg';
-import bodies from '../../assets/images/toddler/bodies.png';
-import envelopes from '../../assets/images/toddler/envelopes.png';
-import hats from '../../assets/images/toddler/hats.png';
-import TextContent from './ui/text';
+import ToddlerCarCard from '@/components/ToddlerCard';
+import Link from 'next/link';
+import Bodies from '../../assets/images/toddler/bodies.png';
+import Envelopes from '../../assets/images/toddler/envelopes.png';
+import Heats from '../../assets/images/toddler/hats.png';
+import Title from './ui/Title';
 
 export default function Toddler() {
   return (
-    <div className='px-5 pt-20'>
-      <div className='flex justify-between xs:pb-8 sm:pb-10 md:pb-11 xl:pb-14'>
-        <TextContent
-          className={'font-medium xs:text-2xl sm:text-3xl'}
-          text={'Самим маленьким'}
-        />
-        <div className='cursor-pointer xs:hidden md:flex md:items-center'>
-          <TextContent
-            className={'pr-2.5 text-sm font-normal text-gray-900'}
-            text={'Дивитись все'}
-          />
-          <Image src={arrow} alt='arrow' className='' />
-        </div>
+    <div className='grid xs:m-[0_auto] xs:max-w-[375px] xs:px-4 xs:pb-10 xs:pt-20 sm:max-w-[480px] sm:px-5 sm:pb-[2.75rem] sm:pt-[5.5rem] md:max-w-[768px] md:pb-14 md:pt-28 lg:max-w-[1024px] lg:px-8 lg:pb-16 lg:pt-32 xl:xs:max-w-[1440px] xl:px-[7.5rem] xl:pb-20 xl:pt-40'>
+      <div className='pb-8 xs:pb-8 sm:pb-10 md:pb-12 xl:pb-[3.37rem]'>
+        <Title title={'Самим маленьким'} titleLink={'Дивитись все'} />
       </div>
-      <div className='grid gap-5 xs:grid-cols-2 md:xs:grid-cols-3'>
-        <div>
-          <Image src={bodies} alt='Bodies' className='rounded-t-3xl' />
-          <div className='flex flex-row justify-between rounded-b-3xl bg-violet-300 py-[1.1rem] pl-4 pr-2.5'>
-            <TextContent
-              className={'font-medium xs:text-xs sm:text-sm md:text-base'}
-              text={'Боді, повзунки'}
-            />
-            <Image src={arrow} alt='arrow' />
-          </div>
+      <div className='grid gap-4 xs:grid-cols-2 xs:items-center md:grid-cols-3 md:gap-5 xl:gap-6'>
+        <div className='xs:h-[10.63rem] sm:h-[12.5rem] md:h-[13.75rem]'>
+          <ToddlerCarCard title={'Боді, повзунки'} src={Bodies} />
         </div>
-        <div>
-          <Image src={hats} alt='Envelopes' className='rounded-t-3xl' />
-          <div className='flex flex-row justify-between rounded-b-3xl bg-violet-300 py-[1.1rem] pl-4 pr-2.5'>
-            <TextContent
-              className={'font-medium xs:text-xs sm:text-sm md:text-base'}
-              text={'Шапочки, царапки'}
-            />
-            <Image src={arrow} alt='arrow' />
-          </div>
+        <div className='xs:h-[10.63rem] sm:h-[12.5rem] md:h-[13.75rem]'>
+          <ToddlerCarCard title={'Конверти'} src={Envelopes} />
         </div>
-        <div>
-          <Image src={envelopes} alt='Envelopes' className='rounded-t-3xl' />
-          <div className='flex justify-between rounded-b-3xl bg-violet-300 py-[1.1rem] pl-4 pr-2.5'>
-            <TextContent
-              className={'font-medium xs:text-xs sm:text-sm md:text-base'}
-              text={'Конверти'}
-            />
-            <Image src={arrow} alt='arrow' />
-          </div>
+        <div className='xs:h-[10.63rem] xs:[word-spacing:1.1rem] sm:h-[12.5rem] sm:[word-spacing:normal] md:h-[13.75rem] md:[word-spacing:2.1rem] lg:[word-spacing:normal]'>
+          <ToddlerCarCard title={'Шапочки, царапки'} src={Heats} />
         </div>
-        <div className='flex cursor-pointer items-center justify-center md:hidden'>
-          <TextContent
-            className={'text-sm font-normal text-gray-900'}
-            text={'Дивитись все'}
-          />
-        </div>
+        <Link
+          href={'#'}
+          className='flex justify-center text-sm text-[#727076] md:hidden'>
+          Дивитись все
+        </Link>
       </div>
     </div>
   );

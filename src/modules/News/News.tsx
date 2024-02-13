@@ -1,96 +1,29 @@
-import Image from 'next/image';
-import arrow from '../../assets/icons/additional/arrow.svg';
-import uniform from '../../assets/images/news/Children.jpg';
-import uniform__375 from '../../assets/images/news/Children__375.png';
-import glasses from '../../assets/images/news/Glasses.png';
-import uniform__1024 from '../../assets/images/news/children__1024.png';
-import uniform__768 from '../../assets/images/news/children__768.png';
-import pajamas from '../../assets/images/news/t-shirts.png';
-import TextContent from './ui/text';
+import NewProductCard from '@/components/NewProductCard';
+import Title from '@/modules/News/ui/Title';
+import Uniforms from '../../assets/images/news/Children.jpg';
+import Glasses from '../../assets/images/news/Glasses.png';
+import Pajamas from '../../assets/images/news/t-shirts.png';
 
 export default function News() {
   return (
-    <div className='xl:px-[7.5rem]'>
-      <div className='flex xs:justify-between xs:px-4 xs:pb-8 sm:px-5 sm:pb-10 md:px-5 md:pb-11 lg:px-8 xl:pb-14  '>
-        <TextContent
-          text={'Цікаві новини'}
-          className={'text-4xl font-medium xs:text-2xl sm:text-3xl'}
-        />
-        <div className='flex cursor-pointer items-center justify-around md:pr-2 lg:pr-[0.77rem] xl:pr-[1.3rem]'>
-          <TextContent
-            text={'Дивитись все'}
-            className={
-              'text-base font-medium text-gray-900 xs:text-sm md:pr-2.5'
-            }
-          />
-          <Image src={arrow} alt={'src'} className='xs:hidden md:block' />
-        </div>
+    <div className='grid xs:m-[0_auto] xs:max-w-[375px] xs:px-4 xs:pt-10 sm:max-w-[480px] sm:px-5 sm:pt-[2.75rem] md:max-w-[768px] md:pt-14 lg:max-w-[1024px] lg:px-8 lg:pt-16 xl:xs:max-w-[1440px] xl:px-[7.5rem] xl:pt-20'>
+      <div className='pb-8 xs:pb-10 sm:pb-10 md:pb-12 lg:pb-[2.75rem] xl:pb-[3.37rem]'>
+        <Title title={'Цікаві новинки'} titleLink={'Дивитись все'} />
       </div>
-      <div className='flex xs:flex-col xs:content-center xs:px-4 sm:px-5 md:flex-row md:justify-around lg:px-8 xl:justify-center'>
-        <div className='xs:size-full xs:pb-5 md:size-[59%] md:pb-0 md:pr-5 lg:min-h-[100%] xl:pr-6'>
-          <div className='relative flex cursor-pointer flex-col rounded-3xl xs:pb-4 md:pb-5 xl:size-auto xl:pb-[1.75rem]'>
-            <div className='absolute left-3 top-3 rounded-3xl bg-amber-500 px-6 py-1.5'>
-              <TextContent text={'15%'} className={'text-lg font-medium'} />
-            </div>
-            <Image
-              src={glasses}
-              alt={'glasses'}
-              className='size-full rounded-t-3xl'
-            />
-            <div className='flex justify-between rounded-b-3xl bg-amber-300 py-3.5 pl-6 pr-4'>
-              <TextContent
-                text={'Сонцезахистні окуляри'}
-                className={'text-lg font-medium'}
-              />
-              <Image src={arrow} alt={'arrow'} />
-            </div>
-          </div>
-          <div className='relative flex cursor-pointer flex-col rounded-3xl'>
-            <div className='absolute left-3 top-3 rounded-3xl bg-amber-500 px-6 py-1.5	'>
-              <TextContent text={'15%'} className={'text-lg font-medium'} />
-            </div>
-            <Image
-              src={pajamas}
-              alt={'pajamas'}
-              className='size-full rounded-t-3xl'
-            />
-            <div className='flex justify-between rounded-b-3xl bg-amber-300 py-3.5 pl-6 pr-4'>
-              <TextContent text={'Піжами'} className={'text-lg font-medium'} />
-              <Image src={arrow} alt={'arrow'} />
-            </div>
-          </div>
+      <div className='grid gap-5 xl:gap-6'>
+        <div className='row-span-1 xs:h-[13.75rem] sm:h-[15.63rem] md:row-start-1 md:row-end-1 md:h-[15.75rem] lg:h-[17.1rem]'>
+          <NewProductCard title={'Cонцезахисні окуляри'} src={Glasses} />
         </div>
-        <div className='relative flex cursor-pointer flex-col rounded-3xl md:min-h-[100%] md:w-[43.5%] xl:min-h-full'>
-          <div className='absolute left-3 top-3 rounded-3xl bg-amber-500 px-6 py-1.5	'>
-            <TextContent text={'15%'} className={'text-lg font-medium'} />
-          </div>
-          <Image
-            src={uniform}
-            alt={'uniform'}
-            className='size-full rounded-t-3xl xs:hidden xl:block'
+        <div className='xs:h-[13.75rem] sm:h-[15.63rem] md:h-[15.75rem] lg:h-[17.1rem]'>
+          <NewProductCard title={'Піжами'} src={Pajamas} />
+        </div>
+        <div className='xs:h-[13.75rem] sm:h-[15.63rem] md:row-start-1 md:row-end-3 md:h-[32.75rem] lg:h-[35.38rem] xl:h-[35.63rem]'>
+          <NewProductCard
+            title={'Шкільна форма'}
+            src={Uniforms}
+            imgPosition='center top'
+            imgSIze='cover'
           />
-          <Image
-            src={uniform__375}
-            alt={'uniform'}
-            className='rounded-t-3xl  xs:size-full md:hidden'
-          />
-          <Image
-            src={uniform__768}
-            alt={'uniform'}
-            className='rounded-t-3xl xs:hidden xs:size-full md:block lg:hidden'
-          />
-          <Image
-            src={uniform__1024}
-            alt={'uniform'}
-            className='rounded-t-3xl xs:hidden xs:size-full lg:block xl:hidden'
-          />
-          <span className='flex justify-between rounded-b-3xl bg-amber-300 py-3.5 pl-6 pr-4'>
-            <TextContent
-              text={'Шкільна форма'}
-              className={'text-lg font-medium'}
-            />
-            <Image src={arrow} alt={'arrow'} className='cursor-pointer' />
-          </span>
         </div>
       </div>
     </div>

@@ -11,9 +11,9 @@ export default function Home() {
       <Hero />
       <Brands />
       <TopSection />
-      <OnSaleSection />
       <News />
       <Toddler />
+      <OnSaleSection />
     </>
   );
 }
