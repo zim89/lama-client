@@ -7,7 +7,7 @@ import Title from './ui/Title';
 
 export default function Toddler() {
   return (
-    <div className='grid xs:m-[0_auto] xs:max-w-[375px] xs:px-4 xs:pb-10 xs:pt-20 sm:max-w-[480px] sm:px-5 sm:pb-[2.75rem] sm:pt-[5.5rem] md:max-w-[768px] md:pb-14 md:pt-28 lg:max-w-[1024px] lg:px-8 lg:pb-16 lg:pt-32 xl:xs:max-w-[1440px] xl:px-[7.5rem] xl:pb-20 xl:pt-40'>
+    <div className='section grid xs:m-[0_auto] xs:max-w-[375px] xs:px-4 sm:max-w-[480px] sm:px-5 md:max-w-[768px] lg:max-w-[1024px] lg:px-8 xl:xs:max-w-[1440px] xl:px-[7.5rem]'>
       <div className='pb-8 xs:pb-8 sm:pb-10 md:pb-12 xl:pb-[3.37rem]'>
         <Title title={'Самим маленьким'} titleLink={'Дивитись все'} />
       </div>
