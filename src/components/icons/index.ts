@@ -10,6 +10,10 @@ import SearchIcon from './SearchIcon';
 import HeartWithHandIcon from './HeartWithHandIcon';
 import CloseIcon from './CloseIcon';
 import ArrowRightIcon from './ArrowRightIcon';
+import TruckIcon from './features/TruckIcon';
+import ArticleIcon from './features/ArticleIcon';
+import LabelIcon from './features/LabelIcon';
+import GiftIcon from './features/GiftIcon';
 
 export {
   BasketIcon,
@@ -24,4 +28,8 @@ export {
   HeartWithHandIcon,
   CloseIcon,
   ArrowRightIcon,
+  TruckIcon,
+  ArticleIcon,
+  LabelIcon,
+  GiftIcon,
 };

@@ -1,8 +1,3 @@
-import truckIcon from '@/assets/icons/additional/truck.svg';
-import articleIcon from '@/assets/icons/additional/article.svg';
-import labelIcon from '@/assets/icons/additional/label.svg';
-import giftIcon from '@/assets/icons/additional/gift.svg';
-
 import visaImg from '@/assets/icons/additional/payVisa.png';
 import mastercardImg from '@/assets/icons/additional/payMastercard.png';
 import applePayImg from '@/assets/icons/additional/payApple.png';
@@ -12,23 +7,19 @@ import { TiktokIcon, InstagramIcon, FacebookIcon } from '@/components/icons';
 
 export const featureList = [
   {
-    id: 1,
-    icon: truckIcon,
+    label: 'truck',
     desc: 'Бескоштовна доставка на покупки від 1000 ₴',
   },
   {
-    id: 2,
-    icon: articleIcon,
+    label: 'article',
     desc: '30 днів на обмін та повернення',
   },
   {
-    id: 3,
-    icon: labelIcon,
+    label: 'label',
     desc: 'Тільки оригінальні бренди',
   },
   {
-    id: 4,
-    icon: giftIcon,
+    label: 'gift',
     desc: 'Програми лояльності для постійних клієнтів',
   },
 ] as const;
