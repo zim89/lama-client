@@ -1,7 +1,6 @@
-'use client';
+import arrow from '@/assets/icons/additional/arrow.svg';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import arrow from '../assets/icons/additional/arrow.svg';
 
 type TNewProductCardProps = {
   textPin?: string;
@@ -11,13 +10,13 @@ type TNewProductCardProps = {
   imgPosition?: string;
 };
 
-const NewProductCard: React.FC<TNewProductCardProps> = ({
+export default function NewProductCard({
   title,
   src,
   textPin,
   imgPosition,
   imgSIze,
-}) => {
+}: TNewProductCardProps) {
   return (
     <div className='relative grid h-full cursor-pointer grid-rows-1 rounded-3xl bg-amber-300 hover:bg-amber-500'>
       {textPin && (
@@ -46,5 +45,4 @@ const NewProductCard: React.FC<TNewProductCardProps> = ({
       </div>
     </div>
   );
-};
-export default NewProductCard;
+}

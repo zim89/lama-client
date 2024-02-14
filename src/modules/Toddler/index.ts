@@ -1,1 +1,1 @@
-export { default } from './Toddler.jsx';
+export { default } from './Toddler';

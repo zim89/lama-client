@@ -1,15 +1,13 @@
+import Uniforms from '@/assets/images/news/Children.jpg';
+import Glasses from '@/assets/images/news/Glasses.png';
+import Pajamas from '@/assets/images/news/t-shirts.png';
 import NewProductCard from '@/components/NewProductCard';
-import Title from '@/modules/News/ui/Title';
-import Uniforms from '../../assets/images/news/Children.jpg';
-import Glasses from '../../assets/images/news/Glasses.png';
-import Pajamas from '../../assets/images/news/t-shirts.png';
+import Title from '@/components/Title';
 
 export default function News() {
   return (
     <div className='section grid xs:m-[0_auto] xs:max-w-[375px] xs:px-4 sm:max-w-[480px] sm:px-5 md:max-w-[768px] lg:max-w-[1024px]  lg:px-8 xl:xs:max-w-[1440px] xl:px-[7.5rem]'>
-      <div className='pb-8 xs:pb-10 sm:pb-10 md:pb-12 lg:pb-[2.75rem] xl:pb-[3.37rem]'>
-        <Title title={'Цікаві новинки'} titleLink={'Дивитись все'} />
-      </div>
+      <Title title={'Цікаві новинки'} titleLink={'Дивитись все'} />
       <div className='grid gap-5 xl:gap-6'>
         <div className='row-span-1 xs:h-[13.75rem] sm:h-[15.63rem] md:row-start-1 md:row-end-1 md:h-[15.75rem] lg:h-[17.1rem]'>
           <NewProductCard title={'Cонцезахисні окуляри'} src={Glasses} />

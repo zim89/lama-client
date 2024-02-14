@@ -1,7 +1,6 @@
-'use client';
+import arrow from '@/assets/icons/additional/arrow.svg';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import arrow from '../assets/icons/additional/arrow.svg';
 
 type TToddlerCarCardProps = {
   textPin?: string;
@@ -11,13 +10,13 @@ type TToddlerCarCardProps = {
   imgPosition?: string;
 };
 
-const ToddlerCarCard: React.FC<TToddlerCarCardProps> = ({
+export default function ToddlerCarCard({
   title,
   src,
   textPin,
   imgPosition,
   imgSIze,
-}) => {
+}: TToddlerCarCardProps) {
   return (
     <div className='relative grid h-full cursor-pointer grid-rows-1 rounded-2xl bg-violet-300 hover:bg-violet-500'>
       {textPin && (
@@ -46,5 +45,4 @@ const ToddlerCarCard: React.FC<TToddlerCarCardProps> = ({
       </div>
     </div>
   );
-};
-export default ToddlerCarCard;
+}
