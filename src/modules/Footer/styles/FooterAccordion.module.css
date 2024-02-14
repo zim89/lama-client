@@ -1,0 +1,15 @@
+.trigger {
+  @apply flex w-full items-center justify-between border-t border-t-gray-500 px-4 py-3 text-start text-xs font-medium sm:px-5;
+}
+
+.triggerIcon {
+  @apply h-4 w-4 text-gray-900 transition-all duration-300;
+}
+
+.content {
+  @apply px-4 sm:px-5;
+}
+
+.link {
+  @apply block py-3 text-xs;
+}

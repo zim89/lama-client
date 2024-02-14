@@ -45,12 +45,14 @@
     @apply flex items-center gap-2.5 px-3 py-2.5 text-base font-medium text-gray-900 transition-colors duration-300 hover:text-black active:text-black lg:py-3 xl:py-4;
   }
 
-  .link-text {
-    @apply lg:text-sm lg:text-black;
+  .textLink {
+    @apply relative text-sm after:absolute after:-bottom-0.5 after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-500 hover:after:w-full group-hover:after:w-full;
   }
 }
 
-/**************************/
+/*********************/
+/*      Sliders      */
+/*********************/
 .brandsSlider .slick-list {
 }
 .brandsSlider .slick-track {
