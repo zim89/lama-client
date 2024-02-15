@@ -12,50 +12,56 @@ import lamaImg_03 from '@/assets/images/hero/lama-03.png';
 export const heroSlides = [
   {
     id: 1,
-    imageUrl: slideImg_01,
-    imageDesc: 'Hero image with girls and boys',
-    additionalUrl: lamaImg_01,
-    additionalDesc: 'Lama image',
+    url: lamaImg_01,
+    alt: 'Lama image',
     desc: '-10% на нову колекцію',
+    images: [
+      {
+        id: 1,
+        url: slideImg_01,
+        alt: 'Hero image with girls and boys',
+      },
+      {
+        id: 2,
+        url: slideImg_02,
+        alt: 'Hero image with girls and boys',
+      },
+    ],
   },
   {
     id: 2,
-    imageUrl: slideImg_02,
-    imageDesc: 'Hero image with girls and boys',
-    additionalUrl: lamaImg_01,
-    additionalDesc: 'Lama image',
-    desc: '-10% на нову колекцію',
+    url: lamaImg_02,
+    alt: 'Lama image',
+    desc: '-25% на теплий одяг',
+    images: [
+      {
+        id: 1,
+        url: slideImg_03,
+        alt: 'Hero image with girls and boys',
+      },
+      {
+        id: 2,
+        url: slideImg_04,
+        alt: 'Hero image with girls and boys',
+      },
+    ],
   },
   {
     id: 3,
-    imageUrl: slideImg_03,
-    imageDesc: 'Hero image with girls and boys',
-    additionalUrl: lamaImg_02,
-    additionalDesc: 'Lama image',
-    desc: '-25% на теплий одяг',
-  },
-  {
-    id: 4,
-    imageUrl: slideImg_04,
-    imageDesc: 'Hero image with girls and boys',
-    additionalUrl: lamaImg_02,
-    additionalDesc: 'Lama image',
-    desc: '-25% на теплий одяг',
-  },
-  {
-    id: 5,
-    imageUrl: slideImg_05,
-    imageDesc: 'Hero image with girls and boys',
-    additionalUrl: lamaImg_03,
-    additionalDesc: 'Lama image',
+    url: lamaImg_03,
+    alt: 'Lama image',
     desc: 'Постійні знижки на аксесуари',
-  },
-  {
-    id: 6,
-    imageUrl: slideImg_06,
-    imageDesc: 'Hero image with girls and boys',
-    additionalUrl: lamaImg_03,
-    additionalDesc: 'Lama image',
-    desc: 'Постійні знижки на аксесуари',
+    images: [
+      {
+        id: 5,
+        url: slideImg_05,
+        alt: 'Hero image with girls and boys',
+      },
+      {
+        id: 6,
+        url: slideImg_06,
+        alt: 'Hero image with girls and boys',
+      },
+    ],
   },
 ] as const;

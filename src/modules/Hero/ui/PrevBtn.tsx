@@ -9,7 +9,7 @@ export default function PrevBtn({ onClick }: Props) {
     <button
       onClick={onClick}
       className={
-        'absolute left-0 top-[108px] z-10 flex h-12 w-11 items-center justify-center rounded-r-3xl bg-gray-300 pr-1 text-gray-900 transition-colors duration-300 hover:text-black'
+        'absolute left-0 top-[168px] z-10 flex h-11 w-11 items-center justify-center rounded-r-3xl bg-violet-300 pr-1 text-gray-900 transition-colors duration-300 hover:text-black md:top-1/2 md:-translate-y-1/2'
       }>
       <svg
         width='19'
