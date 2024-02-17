@@ -1,0 +1,23 @@
+.hero {
+  @apply pb-10 pt-5 sm:pb-1 md:pb-14 lg:pb-16 lg:pt-6 xl:pb-20 xl:pt-9;
+}
+
+.wrap {
+  @apply overflow-hidden rounded-2xl bg-violet-300;
+}
+
+.imageWrap {
+  @apply relative h-[362px] grow sm:h-[354px] md:h-[396px] lg:h-[520px] xl:h-[610px];
+}
+
+.additionalWrap {
+  @apply flex items-center justify-between px-4 py-6 sm:px-5 md:h-[396px] md:w-[194px] md:flex-col md:px-3 md:pt-10 lg:h-[520px] lg:w-[284px] lg:px-6 lg:pb-9 lg:pt-12 xl:h-[610px] xl:w-[324px] xl:px-11 xl:pb-11 xl:pt-20;
+}
+
+.additionalWrap p {
+  @apply w-[151px] text-center text-base font-medium sm:w-[190px] sm:text-xl/[24px] md:w-full lg:text-[28px]/[32px];
+}
+
+.additionalThumb {
+  @apply relative mx-auto hidden h-40 w-40 md:block lg:h-[202px] lg:w-[202px];
+}
