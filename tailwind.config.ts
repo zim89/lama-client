@@ -21,8 +21,8 @@ const config = {
       padding: {
         DEFAULT: '16px',
         sm: '20px',
-        md: '40px',
-        lg: '60px',
+        md: '20px',
+        lg: '32px',
         xl: '120px',
       },
     },

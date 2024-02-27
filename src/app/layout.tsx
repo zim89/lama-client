@@ -6,6 +6,7 @@ import './globals.css';
 import Header from '@/modules/Header';
 import Footer from '@/modules/Footer';
 import Providers from '@/shared/config/Providers';
+import { cn } from '@/shared/lib/utils';
 
 const montserrat = Montserrat({
   weight: ['300', '400', '500', '700'],
@@ -26,11 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${montserrat.variable}`}>
+      <body
+        className={cn('h-full font-sans antialiased', montserrat.className)}>
         <Providers>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <div className='grid min-h-screen grid-rows-[_auto_1fr_auto]'>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 type TTextProps = {
   titleLink?: string;
-  titleLinkHidden?: any;
+  titleLinkHidden?: string;
   title: string;
 };
 
