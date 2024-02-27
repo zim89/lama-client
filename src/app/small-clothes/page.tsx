@@ -5,17 +5,17 @@ import npIcon from '@/assets/icons/companies/nova-poshta.svg';
 import { HeartWithHandIcon, PhoneIcon } from '@/components/IconsPack';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
+const crumbs = [
+  {
+    text: 'Є речі, з яких виросли?',
+  },
+];
+
 export default function Page() {
   return (
     <div className='pb-20 pt-5 sm:pb-[88px] sm:pt-6 md:pb-28 md:pt-2 lg:pb-32 lg:pt-5 xl:pb-40 xl:pt-6'>
       <div className='container'>
-        <Breadcrumbs
-          crumbs={[
-            {
-              text: 'Є речі, з яких виросли?',
-            },
-          ]}
-        />
+        <Breadcrumbs crumbs={crumbs} />
         {/* TODO: tw component H2*/}
         <h2 className={cn('heading-2', 'mb-5 sm:mb-6')}>
           Є речі, з яких виросли?
@@ -59,7 +59,7 @@ export default function Page() {
               <li>книги.</li>
             </ul>
 
-            {/* TODO: tw component H2*/}
+            {/* TODO: tw component H4*/}
             <h3 className={cn('heading-4', 'pt-1')}>Речі повинні бути:</h3>
 
             <ul className='list-inside list-disc pl-1'>
