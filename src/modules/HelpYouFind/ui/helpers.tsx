@@ -1,4 +1,20 @@
-import boy from '@/assets/images/HelpYouFind/Boy/boy.png';
+import accessoriesBgBoy from '@/assets/images/help-find/backgroundImg/accessories__boy.svg';
+import accessoriesBgGirl from '@/assets/images/help-find/backgroundImg/accessories__girl.svg';
+import all_goodsBgBoy from '@/assets/images/help-find/backgroundImg/allGoods__boy.svg';
+import all_goodsBgGirl from '@/assets/images/help-find/backgroundImg/allGoods__girl.svg';
+import babyAllGoodsBgBoy from '@/assets/images/help-find/backgroundImg/babyAllGoods__boy.svg';
+import babyAllGoodsBgGirl from '@/assets/images/help-find/backgroundImg/babyAllGoods__girl.svg';
+import babyShoesBoy from '@/assets/images/help-find/backgroundImg/babyShoes__boy.svg';
+import babyShoesGirl from '@/assets/images/help-find/backgroundImg/babyShoes__girl.svg';
+import clotheBgBoy from '@/assets/images/help-find/backgroundImg/clothe__boy.svg';
+import clotheBgGirl from '@/assets/images/help-find/backgroundImg/clothe__girl.svg';
+import familyBgBoy from '@/assets/images/help-find/backgroundImg/family__boy.svg';
+import familyBgGirl from '@/assets/images/help-find/backgroundImg/family__girl.svg';
+import shoesBgBoy from '@/assets/images/help-find/backgroundImg/shoes__boy.svg';
+import shoesBgGirl from '@/assets/images/help-find/backgroundImg/shoes__girl.svg';
+import suitsBgBoy from '@/assets/images/help-find/backgroundImg/suits__boy.svg';
+import suitsBgGirl from '@/assets/images/help-find/backgroundImg/suits__girl.svg';
+import boy from '@/assets/images/help-find/boy/boy.jpg';
 import accessoryBoy from '@/assets/images/help-find/boy/boy_accessories.jpg';
 import all__goodsBoy from '@/assets/images/help-find/boy/boy_all_goods.jpg';
 import all__godsBabyBoy from '@/assets/images/help-find/boy/boy_baby_all_goods.jpg';
@@ -17,6 +33,7 @@ import familyGirl from '@/assets/images/help-find/girl/girl_family.jpg';
 import shoesGirl from '@/assets/images/help-find/girl/girl_shoes.jpg';
 import costumeGirl from '@/assets/images/help-find/girl/girl_thematic.jpg';
 import titleImg from '@/assets/images/help-find/lama.png';
+import { useEffect, useState } from 'react';
 
 export const getBoyImage = (value, age) => {
   const isBaby = age === '0-2';
@@ -83,42 +100,36 @@ export const hashHeightText = {
   '14+': '165 см+',
 };
 
-export const getAge = {
+export const hashAge = {
   '0-2': {
-    name: '0-2 років',
     top: '223px',
     width: '58px',
     height: '58px',
   },
   '2-4': {
-    name: '2-4 років',
     top: '131px',
     left: '15px',
     width: '58px',
     height: '58px',
   },
   '5-7': {
-    name: '5-7 років',
     top: '49px',
     left: '73px',
     width: '62px',
     height: '62px',
   },
   '8-11': {
-    name: '8-11 років',
     top: '2px',
     left: '159px',
     width: '64px',
     height: '64px',
   },
   '12-14': {
-    name: '12-14 років',
     left: '261px',
     width: '66px',
     height: '66px',
   },
   '14+': {
-    name: '14+ років',
     top: '44px',
     left: '361px',
     width: '68px',
@@ -126,27 +137,155 @@ export const getAge = {
   },
 };
 
-export const getCategory = {
+export const hashAgeFor375 = {
+  '0-2': {
+    top: '140px',
+    left: '0px',
+    width: '48px',
+    height: '48px',
+  },
+  '2-4': {
+    top: '70px',
+    left: '21px',
+    width: '48px',
+    height: '48px',
+  },
+  '5-7': {
+    top: '14px',
+    left: '74px',
+    width: '52px',
+    height: '52px',
+  },
+  '8-11': {
+    top: '-10px',
+    left: '151px',
+    width: '54px',
+    height: '54px',
+  },
+  '12-14': {
+    top: '8px',
+    left: '229px',
+    width: '56px',
+    height: '56px',
+  },
+  '14+': {
+    top: '60px',
+    left: '285px',
+    width: '58px',
+    height: '58px',
+  },
+};
+export const hashAgeFor480 = {
+  '0-2': {
+    left: '48px',
+  },
+  '2-4': {
+    left: '69px',
+  },
+  '5-7': {
+    left: '122px',
+  },
+  '8-11': {
+    left: '199px',
+  },
+  '12-14': {
+    left: '277px',
+  },
+  '14+': {
+    left: '333px',
+  },
+};
+
+export const hashAgeFor768 = {
+  '0-2': {
+    top: '168px',
+  },
+  '2-4': {
+    top: '98px',
+    left: '21px',
+  },
+  '5-7': {
+    top: '42px',
+    left: '74px',
+  },
+  '8-11': {
+    top: '20px',
+    left: '151px',
+  },
+  '12-14': {
+    top: '36px',
+    left: '229px',
+  },
+  '14+': {
+    top: '88px',
+    left: '285px',
+  },
+};
+
+export const hashAgeFor1024 = {
+  '0-2': {
+    top: '223px',
+  },
+  '2-4': {
+    top: '131px',
+    left: '15px',
+  },
+  '5-7': {
+    top: '49px',
+    left: '73px',
+  },
+  '8-11': {
+    top: '2px',
+    left: '159px',
+  },
+  '12-14': {
+    left: '261px',
+  },
+  '14+': {
+    top: '44px',
+    left: '361px',
+  },
+};
+
+export const categoryHash = {
   clothes: {
     title: 'Одяг',
+    backgroundBoy: clotheBgBoy,
+    backgroundBobbyBoy: clotheBgBoy,
+    backgroundGirl: clotheBgGirl,
+    backgroundBobbyGirl: clotheBgGirl,
   },
   accessories: {
     title: 'Аксесуари',
+    backgroundBoy: accessoriesBgBoy,
+    backgroundGirl: accessoriesBgGirl,
     disabled: true,
   },
   suits: {
     title: 'Тематичні костюми',
+    backgroundBoy: suitsBgBoy,
+    backgroundGirl: suitsBgGirl,
     disabled: true,
   },
   shoes: {
     title: 'Взуття',
+    backgroundBoy: shoesBgBoy,
+    backgroundBobbyBoy: babyShoesBoy,
+    backgroundGirl: shoesBgGirl,
+    backgroundBobbyGirl: babyShoesGirl,
   },
   family: {
     title: 'Фемелі лук',
+    backgroundBoy: familyBgBoy,
+    backgroundGirl: familyBgGirl,
     disabled: true,
   },
   all_goods: {
     title: 'Всі товари',
+    backgroundBoy: all_goodsBgBoy,
+    backgroundBobbyBoy: babyAllGoodsBgBoy,
+    backgroundGirl: all_goodsBgGirl,
+    backgroundBobbyGirl: babyAllGoodsBgGirl,
   },
 };
 
@@ -163,4 +302,20 @@ export const hashColors = {
     backgroundColorAge: '#BFCCF8',
     borderColor: '#BFCCF8',
   },
+};
+
+export const useMediaQuery = (query) => {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    window.addEventListener('resize', listener);
+    return () => window.removeEventListener('resize', listener);
+  }, [matches, query]);
+
+  return matches;
 };

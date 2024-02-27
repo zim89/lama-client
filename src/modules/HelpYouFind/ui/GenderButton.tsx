@@ -3,6 +3,7 @@ type TGenderButtonProps = {
   textColor: string;
   text: string;
   onClick: any;
+  width?: string;
 };
 
 export default function GenderButton({
@@ -10,14 +11,16 @@ export default function GenderButton({
   textColor,
   text,
   onClick,
+  width,
 }: TGenderButtonProps) {
   return (
     <button
-      className='cursor-pointer rounded-full px-[2.63rem] py-3 text-center text-sm font-medium'
+      className='w-[5.7rem] cursor-pointer  rounded-full py-3.5 text-center text-xs font-medium sm:w-[7.3rem] md:w-[5.8rem] md:py-3 md:text-sm lg:w-[7.13rem] xl:w-[9.6rem]'
       onClick={onClick}
       style={{
         backgroundColor: backgroundColor,
         color: textColor,
+        width: width,
       }}>
       {text}
     </button>
