@@ -338,7 +338,7 @@ export default function HelpYouFind() {
                   </button>
                 ) : (
                   <button
-                    className='ml-8 h-[2.75rem] rounded-2xl bg-violet-500 px-6 py-3 text-sm font-medium disabled:bg-gray-300 disabled:text-gray-900 sm:ml-[2.75rem] md:px-8 md:py-4 md:text-lg'
+                    className='h-[2.75rem] rounded-2xl bg-violet-500 px-6 py-3 text-sm font-medium disabled:bg-gray-300 disabled:text-gray-900'
                     disabled={!age}
                     onClick={handleActive}>
                     Обрати категорію
@@ -348,7 +348,7 @@ export default function HelpYouFind() {
             )}
             {(age || isSameCategoryActive) && (
               <button
-                className='flex h-[2.75rem] items-center justify-center py-4 text-sm font-medium text-[#727076] hover:text-[#080709] md:mr-8 md:h-11 md:text-base lg:h-12 xl:text-lg'
+                className='mr-8 flex h-[2.75rem] items-center justify-center py-4 text-sm font-medium text-[#727076] hover:text-[#080709] sm:mr-[2.75rem] md:mr-8 md:h-11 md:text-base lg:h-12 xl:text-lg'
                 onClick={() => handleResetAll()}>
                 Скинути обране
               </button>
