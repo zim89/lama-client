@@ -18,11 +18,18 @@ export default function Title({
       <h3>{title}</h3>
       <div className='cursor-pointe flex items-center pt-2 md:pr-2 lg:pr-[0.765rem] xl:pr-4'>
         {!titleLinkHidden ? (
-          <Link
-            href={'#'}
-            className='text-sm font-medium text-gray-900 md:block md:pr-2.5 md:pt-1 lg:text-base'>
-            {titleLink}
-          </Link>
+          <>
+            <Link
+              href={'#'}
+              className='text-sm font-medium text-gray-900 md:block md:pr-2.5 md:pt-1 lg:text-base'>
+              {titleLink}
+            </Link>
+            <Image
+              src={arrow}
+              alt={'arrow'}
+              className='mt-1.5 hidden h-[13.5px] w-[16.5px] md:block '
+            />
+          </>
         ) : (
           <Link
             href={'#'}
@@ -30,11 +37,6 @@ export default function Title({
             {titleLinkHidden}
           </Link>
         )}
-        <Image
-          src={arrow}
-          alt={'arrow'}
-          className='mt-1.5 hidden h-[13.5px] w-[16.5px] md:block '
-        />
       </div>
     </div>
   );

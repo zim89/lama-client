@@ -1,4 +1,4 @@
-import Brands from '@/modules/Brands';
+import HelpYouFind from '@/modules/HelpYouFind';
 import Hero from '@/modules/Hero';
 import News from '@/modules/News/News';
 import OnSaleSection from '@/modules/OnSaleSection';
@@ -9,7 +9,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-      {/*<Brands />*/}
+      {/* <Brands /> */}
+      <HelpYouFind />
       <TopSection />
       <News />
       <Toddler />
