@@ -11,13 +11,13 @@ import {
   categoryLinks,
   featureList,
   payList,
-  serviceLinks,
   socialLinks,
 } from '@/modules/Footer/lib/data';
 import FooterAccordion from './ui/FooterAccordion';
 import logoMobileImg from '@/assets/icons/logo/logo-tablet.png';
 import logoTabletImg from '@/assets/icons/logo/logo-desktop.png';
 import styles from './styles/footer.module.css';
+import { serviceLinks } from '@/shared/lib/data';
 
 export default function Footer() {
   return (

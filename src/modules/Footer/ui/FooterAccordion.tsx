@@ -9,8 +9,9 @@ import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/shared/lib/utils';
 
-import { categoryLinks, serviceLinks } from '../lib/data';
+import { categoryLinks } from '../lib/data';
 import styles from '../styles/FooterAccordion.module.css';
+import { serviceLinks } from '@/shared/lib/data';
 
 function FooterAccordion() {
   const [isOpenPopular, setIsOpenPopular] = useState(false);
