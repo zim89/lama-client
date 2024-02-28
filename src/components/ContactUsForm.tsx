@@ -88,7 +88,7 @@ export default function ContactUsForm() {
         <CollapsibleTrigger
           className={cn(
             'flex w-full items-center justify-between py-2.5 pl-4 pr-2 text-base text-gray-900',
-            isOpen && 'border-b border-b-gray-700'
+            isOpen && 'border-b border-b-gray-700 text-gray-700'
           )}>
           {getValues('theme') ? getValues('theme') : 'Оберіть тему'}
           <span
@@ -105,7 +105,7 @@ export default function ContactUsForm() {
                 key={item}
                 onClick={() => onChange(item)}
                 className={cn(
-                  'border-b border-b-gray-500 px-4 py-2.5 text-base text-gray-900 last:border-b-0',
+                  'cursor-pointer border-b border-b-gray-500 px-4 py-2.5 text-base text-gray-900 last:border-b-0',
                   item === getValues('theme') && 'bg-amber-500'
                 )}>
                 {item}
