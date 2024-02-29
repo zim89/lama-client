@@ -1,10 +1,10 @@
-import Link from 'next/link';
 import { HeartWithHandIcon, SearchIcon } from '@/components/icons';
 import { cn } from '@/shared/lib/utils';
+import Link from 'next/link';
+import HeaderSlider from './ui/HeaderSlider';
 import Logo from './ui/Logo';
 import Toolbar from './ui/Toolbar';
 import UserMenu from './ui/UserMenu';
-import HeaderSlider from './ui/HeaderSlider';
 
 export default function Header() {
   return (

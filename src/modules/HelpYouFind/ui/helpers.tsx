@@ -63,7 +63,7 @@ export const getBoyImage = (value, age) => {
   }
 };
 
-export const getGirImage = (value, age) => {
+export const getGirImage = (value: any, age: any) => {
   const isBaby = age === '0-2';
   const isKid = age === '2-4';
 
@@ -304,7 +304,7 @@ export const hashColors = {
   },
 };
 
-export const useMediaQuery = (query) => {
+export const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false);
 
   useEffect(() => {

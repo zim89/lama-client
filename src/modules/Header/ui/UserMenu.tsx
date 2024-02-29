@@ -1,9 +1,17 @@
-import { BasketIcon, UserIcon, HeartIcon } from '@/components/icons';
-import Indicator from './Indicator';
+'use client';
+import { BasketIcon, HeartIcon, UserIcon } from '@/components/icons';
+import Modals from '@/modules/modals';
 import { cn } from '@/shared/lib/utils';
 import Link from 'next/link';
+import { useState } from 'react';
+import Indicator from './Indicator';
 
 export default function UserMenu() {
+  const [modalActive, setModalActive] = useState(false);
+  const handleActive = () => {
+    setModalActive(!modalActive);
+  };
+
   return (
     <div className='flex sm:gap-1 lg:gap-2 xl:gap-5'>
       <Indicator value={99}>
@@ -31,7 +39,8 @@ export default function UserMenu() {
       </Indicator>
 
       <Link
-        href={'/login'}
+        href={'#'}
+        onClick={handleActive}
         aria-label='Open user profile'
         className={cn('btn-action', 'group xl:w-auto xl:gap-2')}>
         <UserIcon />
@@ -39,6 +48,8 @@ export default function UserMenu() {
           Авторизація
         </span>
       </Link>
+
+      <Modals active={modalActive} setActive={setModalActive} />
     </div>
   );
 }
