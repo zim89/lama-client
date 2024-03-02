@@ -63,7 +63,7 @@ export const getBoyImage = (value, age) => {
   }
 };
 
-export const getGirImage = (value: any, age: any) => {
+export const getGirImage = (value, age) => {
   const isBaby = age === '0-2';
   const isKid = age === '2-4';
 

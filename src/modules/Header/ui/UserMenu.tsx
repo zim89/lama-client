@@ -1,15 +1,14 @@
 'use client';
 import { BasketIcon, HeartIcon, UserIcon } from '@/components/icons';
-import Modals from '@/modules/modals';
+import { useModals } from '@/shared/config/ModalProvider';
 import { cn } from '@/shared/lib/utils';
 import Link from 'next/link';
-import { useState } from 'react';
 import Indicator from './Indicator';
 
 export default function UserMenu() {
-  const [modalActive, setModalActive] = useState(false);
-  const handleActive = () => {
-    setModalActive(!modalActive);
+  const dataModal = useModals();
+  const handleClickShowModal = () => {
+    dataModal?.ModalsShow(!dataModal.showModal);
   };
 
   return (
@@ -38,18 +37,15 @@ export default function UserMenu() {
         </Link>
       </Indicator>
 
-      <Link
-        href={'#'}
-        onClick={handleActive}
+      <button
+        onClick={handleClickShowModal}
         aria-label='Open user profile'
         className={cn('btn-action', 'group xl:w-auto xl:gap-2')}>
         <UserIcon />
         <span className='hidden text-base font-medium text-black xl:inline'>
           Авторизація
         </span>
-      </Link>
-
-      <Modals active={modalActive} setActive={setModalActive} />
+      </button>
     </div>
   );
 }

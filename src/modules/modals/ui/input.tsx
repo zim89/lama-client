@@ -16,7 +16,7 @@ export default function Input(props: TInputProps) {
     <label className=''>
       <span className=''>{props.title}</span>
       <input
-        className='h-11	w-full rounded-xl border border-gray-500 bg-gray-100 hover:border-gray-700 active:border-gray-900'
+        className='h-11 w-full	rounded-lg border border-gray-500 bg-gray-100 pl-5 hover:border-gray-700 active:border-gray-900'
         type={props.type}
         onChange={props.handleChange}
         value={props.values}

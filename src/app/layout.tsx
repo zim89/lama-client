@@ -1,12 +1,13 @@
-import React from 'react';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
+import React from 'react';
 
-import './globals.css';
-import Header from '@/modules/Header';
 import Footer from '@/modules/Footer';
+import Header from '@/modules/Header';
+import { ModalsProvider } from '@/shared/config/ModalProvider';
 import Providers from '@/shared/config/Providers';
 import { cn } from '@/shared/lib/utils';
+import './globals.css';
 
 const montserrat = Montserrat({
   weight: ['300', '400', '500', '700'],
@@ -31,9 +32,11 @@ export default function RootLayout({
         className={cn('h-full font-sans antialiased', montserrat.className)}>
         <Providers>
           <div className='grid min-h-screen grid-rows-[_auto_1fr_auto]'>
-            <Header />
-            <main>{children}</main>
-            <Footer />
+            <ModalsProvider>
+              <Header />
+              <main>{children}</main>
+              <Footer />
+            </ModalsProvider>
           </div>
         </Providers>
       </body>
