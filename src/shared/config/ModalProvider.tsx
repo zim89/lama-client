@@ -22,7 +22,6 @@ export const ModalsProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const [recovery, setRecovery] = useState(false);
-
   return (
     <Context.Provider
       value={{ ModalsShow, showModal, setShowModal, recovery, setRecovery }}>

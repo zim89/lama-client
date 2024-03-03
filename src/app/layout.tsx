@@ -4,6 +4,7 @@ import React from 'react';
 
 import Footer from '@/modules/Footer';
 import Header from '@/modules/Header';
+import { AuthProvider } from '@/shared/config/AuthProvider';
 import { ModalsProvider } from '@/shared/config/ModalProvider';
 import Providers from '@/shared/config/Providers';
 import { cn } from '@/shared/lib/utils';
@@ -32,11 +33,13 @@ export default function RootLayout({
         className={cn('h-full font-sans antialiased', montserrat.className)}>
         <Providers>
           <div className='grid min-h-screen grid-rows-[_auto_1fr_auto]'>
-            <ModalsProvider>
-              <Header />
-              <main>{children}</main>
-              <Footer />
-            </ModalsProvider>
+            <AuthProvider>
+              <ModalsProvider>
+                <Header />
+                <main>{children}</main>
+                <Footer />
+              </ModalsProvider>
+            </AuthProvider>
           </div>
         </Providers>
       </body>

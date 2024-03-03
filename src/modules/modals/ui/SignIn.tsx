@@ -7,21 +7,47 @@ import { useModals } from '@/shared/config/ModalProvider';
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Endpoint from '../lib/endpoint';
 import Recovery from './Recovery';
 import Button from './button';
 import Input from './input';
+import { validate } from './validate';
 
 export default function SignIn() {
   const dataModal = useModals();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [passwordShown, setPasswordShown] = useState(false);
+  const [formValid, setFormValid] = useState(false);
+
+  function blurHandler(e: any) {
+    const validDate = validate({ email, password });
+    switch (e.target.name) {
+      case 'email':
+        setEmailError(validDate.email as string);
+        break;
+      case 'password':
+        setPasswordError(validDate.password as string);
+        break;
+    }
+  }
+  useEffect(() => {
+    if (emailError || passwordError) {
+      setFormValid(false);
+    } else if (email == '' || password == '') {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    }
+  }, [emailError, passwordError, email, password]);
 
   const handleClickShowRecovery = () => {
     dataModal?.setRecovery(!dataModal.recovery);
   };
+
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
@@ -32,20 +58,29 @@ export default function SignIn() {
       email,
       password,
     };
+    validate;
     axios
       .post(Endpoint.AUTH.LOGIN, value)
       .then(function (response) {
+        const validDate = validate(value);
         if (response.status === 200) {
-          const Token = response.data.refresh;
-          localStorage.setItem('refresh', Token);
+          const Token = response.data.access;
+          localStorage.setItem('access', Token);
           dataModal?.setShowModal(!dataModal.showModal);
+        } else if (response.status === 400 || response.status === 401) {
+          setEmailError(validDate.email as string);
+          setPasswordError(validDate.password as string);
         }
       })
       .catch(function (error) {
+        const validDate = validate(value);
+        if (error.response.status === 400 || error.response.status === 401) {
+          setEmailError('Не правильний email або пароль');
+          setPasswordError('Не правильний email або пароль');
+        }
         console.log(error);
       });
   };
-
   return (
     <div className='px-8'>
       {dataModal?.recovery ? (
@@ -60,6 +95,8 @@ export default function SignIn() {
               type='email'
               placeholder={'Введіть свою пошту'}
               handleChange={(e) => setEmail(e.target.value)}
+              onBlur={(e) => blurHandler(e)}
+              error={emailError}
             />
             <div className='relative mt-6'>
               <Input
@@ -69,6 +106,8 @@ export default function SignIn() {
                 type={passwordShown ? 'text' : 'password'}
                 placeholder={'Введіть свій пароль'}
                 handleChange={(e) => setPassword(e.target.value)}
+                onBlur={(e) => blurHandler(e)}
+                error={passwordError}
               />
               <Image
                 className='absolute right-[15px] top-[35px] cursor-pointer'
@@ -85,7 +124,11 @@ export default function SignIn() {
                 Відновити пароль
               </Link>
             </div>
-            <Button title={'Увійти'} marginTop='2.25rem' />
+            <Button
+              title={'Увійти'}
+              marginTop='2.25rem'
+              disabled={!formValid}
+            />
           </form>
           <div className='flex justify-center pt-12'>
             <p className='text-sm font-normal text-gray-900'>

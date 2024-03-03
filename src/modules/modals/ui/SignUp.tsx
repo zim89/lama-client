@@ -4,17 +4,42 @@ import eyeClose from '@/assets/icons/additional/eyeClose.svg';
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Endpoint from '../lib/endpoint';
 import Button from './button';
 import CheckBox from './checkbox';
 import Input from './input';
 import InfoText from './textInfo';
+import { validate } from './validate';
 
 export default function SignUp() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [emailError, setEmailError] = useState<string>('');
+  const [passwordError, setPasswordError] = useState<string>('');
+  const [formValid, setFormValid] = useState<boolean>(false);
   const [passwordShown, setPasswordShown] = useState<boolean>(false);
+
+  function blurHandler(e: any) {
+    const validDate = validate({ email, password });
+    switch (e.target.name) {
+      case 'email':
+        setEmailError(validDate.email as string);
+        break;
+      case 'password':
+        setPasswordError(validDate.password as string);
+        break;
+    }
+  }
+  useEffect(() => {
+    if (emailError || passwordError) {
+      setFormValid(false);
+    } else if (email == '' || password == '') {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    }
+  }, [emailError, passwordError, email, password]);
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -37,7 +62,7 @@ export default function SignUp() {
   };
 
   return (
-    <form className='px-8' onSubmit={registrationHandler}>
+    <form className='px-8' onSubmit={registrationHandler} id='authForm'>
       <Input
         title={'Електронна пошта*'}
         name='email'
@@ -45,6 +70,8 @@ export default function SignUp() {
         type='email'
         placeholder={'Введіть свою пошту'}
         handleChange={(e) => setEmail(e.target.value)}
+        onBlur={(e) => blurHandler(e)}
+        error={emailError}
       />
       <div className='relative mb-14 mt-6'>
         <Input
@@ -54,6 +81,8 @@ export default function SignUp() {
           type={passwordShown ? 'text' : 'password'}
           placeholder={'Введіть свій пароль'}
           handleChange={(e) => setPassword(e.target.value)}
+          onBlur={(e) => blurHandler(e)}
+          error={passwordError}
         />
         <Image
           className='absolute right-[15px] top-[35px] cursor-pointer'
@@ -71,7 +100,11 @@ export default function SignUp() {
         </Link>
       </p>
       <CheckBox title='Хочу отримувати комерційні пропозиції магазину Lama на вказаний вище email' />
-      <Button title={'Зареєструватися'} marginTop='2.25rem' />
+      <Button
+        title={'Зареєструватися'}
+        marginTop='2.25rem'
+        disabled={!formValid}
+      />
       <InfoText />
     </form>
   );
