@@ -62,7 +62,7 @@ export default function SignUp() {
   };
 
   return (
-    <form className='px-8' onSubmit={registrationHandler} id='authForm'>
+    <form className='px-5 lg:px-8' onSubmit={registrationHandler} id='authForm'>
       <Input
         title={'Електронна пошта*'}
         name='email'
@@ -72,6 +72,7 @@ export default function SignUp() {
         handleChange={(e) => setEmail(e.target.value)}
         onBlur={(e) => blurHandler(e)}
         error={emailError}
+        topError={'220px'}
       />
       <div className='relative mb-14 mt-6'>
         <Input
@@ -83,6 +84,7 @@ export default function SignUp() {
           handleChange={(e) => setPassword(e.target.value)}
           onBlur={(e) => blurHandler(e)}
           error={passwordError}
+          topError={'65px'}
         />
         <Image
           className='absolute right-[15px] top-[35px] cursor-pointer'

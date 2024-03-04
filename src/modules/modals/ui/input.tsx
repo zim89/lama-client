@@ -9,6 +9,7 @@ type TInputProps = {
   handleChange?: (e: InputHTMLAttributes<HTMLInputElement>) => void;
   type: string;
   placeholder: string;
+  topError: string;
 };
 
 export default function Input(props: TInputProps) {
@@ -26,12 +27,14 @@ export default function Input(props: TInputProps) {
           onBlur={props.onBlur}
         />
         {props.error ? (
-          <span className='flex items-end pt-1 text-xs text-gray-700'>
+          <span
+            className='absolute flex items-end pt-1 text-xs text-gray-700'
+            style={{
+              top: props.topError,
+            }}>
             {props.error}
           </span>
-        ) : (
-          ''
-        )}
+        ) : null}
       </div>
     </label>
   );

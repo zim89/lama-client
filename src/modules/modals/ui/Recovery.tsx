@@ -44,8 +44,8 @@ export default function Recovery() {
       <div>
         <h5 className='pb-4 text-2xl font-medium'>Відновити пароль</h5>
         <p className='w-full pb-8 text-sm font-normal tracking-wide [word-spacing:5px]'>
-          Введіть пошту, вказану під час реєстрації, і ми відразу
-          <br /> надішлемо інструкцію, як змінити пароль
+          Введіть пошту, вказану під час реєстрації, і ми відразу надішлемо
+          інструкцію, як змінити пароль
         </p>
       </div>
       <Input

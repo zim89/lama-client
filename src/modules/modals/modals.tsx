@@ -32,9 +32,9 @@ export default function Modals({ show }: TModalsProps) {
         <div
           className='fixed right-0 top-0 z-20 flex size-full flex-col bg-black bg-opacity-50'
           onClick={handleClickOutSide}>
-          <div className='fixed right-0 top-0 z-20 flex h-full w-[30rem] flex-col bg-white'>
+          <div className='fixed right-0 top-0 z-20 m-[0_auto] flex h-full w-full flex-col bg-white md:w-[23.5rem] md:items-stretch lg:w-[30rem]'>
             <div onClick={(e) => e.stopPropagation()}>
-              <div className='border-b border-gray-500 bg-gray-100'>
+              <div className='w-full border-b border-gray-500 bg-gray-100'>
                 <h4 className='text-grey-900 py-5 pl-5 text-sm font-normal'>
                   Авторизація
                 </h4>
@@ -57,9 +57,10 @@ export default function Modals({ show }: TModalsProps) {
                   />
                 </div>
               )}
-
-              {authorization == 'login' && <SignIn />}
-              {authorization == 'registration' && <SignUp />}
+              <div className='m-[0_auto] flex flex-col items-center sm:w-[23.5rem] md:w-auto md:items-stretch'>
+                {authorization == 'login' && <SignIn />}
+                {authorization == 'registration' && <SignUp />}
+              </div>
               <div></div>
             </div>
           </div>

@@ -12,10 +12,6 @@ export default function UserMenu() {
   const dataUser = useAuth();
   const [title, setTitle] = useState<boolean>(false);
 
-  const handleClickShowModal = () => {
-    dataModal?.ModalsShow(!dataModal.showModal);
-  };
-
   useEffect(() => {
     const access = localStorage.getItem('access');
     if (access !== null) {
@@ -24,7 +20,9 @@ export default function UserMenu() {
       setTitle(false);
     }
   }, [setTitle]);
-
+  function handleChange() {
+    dataModal?.setShowModal(!dataModal.showModal);
+  }
   return (
     <div className='flex sm:gap-1 lg:gap-2 xl:gap-5'>
       <Indicator value={99}>
@@ -52,12 +50,12 @@ export default function UserMenu() {
       </Indicator>
 
       <button
-        onClick={handleClickShowModal}
+        onClick={handleChange}
         aria-label='Open user profile'
         className={cn('btn-action', 'group xl:w-auto xl:gap-2')}>
         <UserIcon />
         <span className='hidden text-base font-medium text-black xl:inline'>
-          {title ? dataUser?.email : 'Авторизація'}
+          {dataUser?.showEmail ? dataUser.email : 'Авторизація'}
         </span>
       </button>
     </div>

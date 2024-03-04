@@ -82,7 +82,7 @@ export default function SignIn() {
       });
   };
   return (
-    <div className='px-8'>
+    <div className='w-[23.44rem] px-5 sm:w-[30rem] md:w-auto lg:px-8'>
       {dataModal?.recovery ? (
         <Recovery />
       ) : (
@@ -97,6 +97,7 @@ export default function SignIn() {
               handleChange={(e) => setEmail(e.target.value)}
               onBlur={(e) => blurHandler(e)}
               error={emailError}
+              topError={'220px'}
             />
             <div className='relative mt-6'>
               <Input
@@ -108,6 +109,7 @@ export default function SignIn() {
                 handleChange={(e) => setPassword(e.target.value)}
                 onBlur={(e) => blurHandler(e)}
                 error={passwordError}
+                topError={'65px'}
               />
               <Image
                 className='absolute right-[15px] top-[35px] cursor-pointer'
@@ -116,7 +118,7 @@ export default function SignIn() {
                 alt={'eye'}
               />
             </div>
-            <div className='flex justify-end pt-1'>
+            <div className='flex justify-end pt-5'>
               <Link
                 href={'#'}
                 onClick={handleClickShowRecovery}
