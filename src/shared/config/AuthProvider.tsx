@@ -26,6 +26,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       const tokenInfoDecoded = window.atob(tokenInfo as string);
       const dataUser = JSON.parse(tokenInfoDecoded);
       const id = dataUser.user_id;
+
       setUserId(id);
       setShowEmail(true);
       axios

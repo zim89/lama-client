@@ -1,6 +1,8 @@
 'use client';
 
+import exit from '@/assets/icons/additional/exit.svg';
 import { useModals } from '@/shared/config/ModalProvider';
+import Image from 'next/image';
 import { useState } from 'react';
 import SignIn from './ui/SignIn';
 import SignUp from './ui/SignUp';
@@ -34,10 +36,16 @@ export default function Modals({ show }: TModalsProps) {
           onClick={handleClickOutSide}>
           <div className='fixed right-0 top-0 z-20 m-[0_auto] flex h-full w-full flex-col bg-white md:w-[23.5rem] md:items-stretch lg:w-[30rem]'>
             <div onClick={(e) => e.stopPropagation()}>
-              <div className='w-full border-b border-gray-500 bg-gray-100'>
+              <div className='flex w-full justify-between border-b border-gray-500 bg-gray-100'>
                 <h4 className='text-grey-900 py-5 pl-5 text-sm font-normal'>
                   Авторизація
                 </h4>
+                <Image
+                  src={exit}
+                  alt={'exit'}
+                  className='mr-4 cursor-pointer lg:hidden'
+                  onClick={handleClickOutSide}
+                />
               </div>
               {!dataModal.recovery && (
                 <div className='m-[1rem_auto_2.25rem_auto] flex w-[19.13rem] flex-row rounded-3xl bg-amber-300'>

@@ -16,21 +16,27 @@ import { validate } from './validate';
 
 export default function SignIn() {
   const dataModal = useModals();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
-  const [passwordShown, setPasswordShown] = useState(false);
-  const [formValid, setFormValid] = useState(false);
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [emailError, setEmailError] = useState<string>('');
+  const [passwordError, setPasswordError] = useState<string>('');
+  const [errorClick, setErrorClick] = useState<string>('');
+  const [errorColor, setErrorColor] = useState<string>('');
+  const [passwordShown, setPasswordShown] = useState<boolean>(false);
+  const [formValid, setFormValid] = useState<boolean>(false);
 
   function blurHandler(e: any) {
     const validDate = validate({ email, password });
     switch (e.target.name) {
       case 'email':
         setEmailError(validDate.email as string);
+        setErrorColor('');
+        setErrorClick('');
         break;
       case 'password':
         setPasswordError(validDate.password as string);
+        setErrorColor('');
+        setErrorClick('');
         break;
     }
   }
@@ -58,7 +64,6 @@ export default function SignIn() {
       email,
       password,
     };
-    validate;
     axios
       .post(Endpoint.AUTH.LOGIN, value)
       .then(function (response) {
@@ -67,16 +72,12 @@ export default function SignIn() {
           const Token = response.data.access;
           localStorage.setItem('access', Token);
           dataModal?.setShowModal(!dataModal.showModal);
-        } else if (response.status === 400 || response.status === 401) {
-          setEmailError(validDate.email as string);
-          setPasswordError(validDate.password as string);
         }
       })
       .catch(function (error) {
-        const validDate = validate(value);
         if (error.response.status === 400 || error.response.status === 401) {
-          setEmailError('Не правильний email або пароль');
-          setPasswordError('Не правильний email або пароль');
+          setErrorClick('Не правильний email або пароль');
+          setErrorColor('#F50711');
         }
         console.log(error);
       });
@@ -97,7 +98,10 @@ export default function SignIn() {
               handleChange={(e) => setEmail(e.target.value)}
               onBlur={(e) => blurHandler(e)}
               error={emailError}
+              errorClick={errorClick}
               topError={'220px'}
+              topErrorCLick={'155px'}
+              borderColor={errorColor}
             />
             <div className='relative mt-6'>
               <Input
@@ -109,7 +113,10 @@ export default function SignIn() {
                 handleChange={(e) => setPassword(e.target.value)}
                 onBlur={(e) => blurHandler(e)}
                 error={passwordError}
+                errorClick={errorClick}
                 topError={'65px'}
+                topErrorCLick={'0'}
+                borderColor={errorColor}
               />
               <Image
                 className='absolute right-[15px] top-[35px] cursor-pointer'
