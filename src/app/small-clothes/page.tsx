@@ -13,7 +13,7 @@ const crumbs = [
 
 export default function Page() {
   return (
-    <div className='pb-20 pt-5 sm:pb-[88px] sm:pt-6 md:pb-28 md:pt-2 lg:pb-32 lg:pt-5 xl:pb-40 xl:pt-6'>
+    <div className='additional-wrap'>
       <div className='container'>
         <Breadcrumbs crumbs={crumbs} />
         {/* TODO: tw component H2*/}
