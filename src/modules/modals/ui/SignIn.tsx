@@ -4,11 +4,11 @@ import eyeClose from '@/assets/icons/additional/eyeClose.svg';
 import facebook from '@/assets/icons/additional/facebook.svg';
 import google from '@/assets/icons/additional/google.svg';
 import { useModals } from '@/shared/config/ModalProvider';
-import axios from 'axios';
+import { AuthService } from '@/shared/services/auth.service';
+import { useAuthState } from '@/shared/store/store';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import Endpoint from '../lib/endpoint';
 import Recovery from './Recovery';
 import Button from './button';
 import Input from './input';
@@ -16,6 +16,7 @@ import { validate } from './validate';
 
 export default function SignIn() {
   const dataModal = useModals();
+  const storage = useAuthState();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [emailError, setEmailError] = useState<string>('');
@@ -64,15 +65,18 @@ export default function SignIn() {
       email,
       password,
     };
-    axios
-      .post(Endpoint.AUTH.LOGIN, value)
-      .then(function (response) {
-        const validDate = validate(value);
-        if (response.status === 200) {
-          const Token = response.data.access;
-          localStorage.setItem('access', Token);
-          dataModal?.setShowModal(!dataModal.showModal);
-        }
+    storage.setUserEmail(email);
+    const data = AuthService.login(value);
+    data
+      .then((data) => {
+        const token = data?.access;
+        const refresh = data?.refresh;
+        storage.setAuthToken(token);
+        storage.setSignUpToken(refresh);
+        console.log(token);
+        console.log(refresh);
+        localStorage.setItem('token', token as string);
+        dataModal?.setShowModal(!dataModal.showModal);
       })
       .catch(function (error) {
         if (error.response.status === 400 || error.response.status === 401) {

@@ -2,10 +2,9 @@
 
 import arrowLeft from '@/assets/icons/additional/arrowLeft.svg';
 import { useModals } from '@/shared/config/ModalProvider';
-import axios from 'axios';
+import { AuthService } from '@/shared/services/auth.service';
 import Image from 'next/image';
 import { useState } from 'react';
-import Endpoint from '../lib/endpoint';
 import Button from './button';
 import Input from './input';
 
@@ -19,16 +18,15 @@ export default function Recovery() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    axios
-      .post(Endpoint.AUTH.RECOVERY, { email })
-      .then(function (response) {
-        if (response.status === 200) {
-          const Token = response.data.refresh;
-          localStorage.setItem('refresh', Token);
-          dataModal?.setShowModal(!dataModal.showModal);
-        }
+    const value = { email: email };
+    const data = AuthService.recovery(value);
+    console.log(data);
+    data
+      .then((data) => {
+        console.log(data);
+        const status = data.status;
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   };

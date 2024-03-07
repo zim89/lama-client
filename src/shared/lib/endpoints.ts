@@ -1,5 +1,11 @@
 export const Endpoint = {
   AUTH: {
-    USERS: 'http://localhost:8000/api/auth/users/',
+    BASE: 'http://localhost:8000/api/',
+    LOGIN: 'auth/jwt/create/',
+    REGISTRATION: 'auth/users/',
+    RECOVERY: 'auth/users/reset_password/',
+    REFRESH: 'auth/jwt/refresh/',
+    VERIFY: 'auth/jwt/verify/',
+    USERS: 'auth/users/',
   },
 };

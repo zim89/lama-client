@@ -1,28 +1,24 @@
 'use client';
 import { BasketIcon, HeartIcon, UserIcon } from '@/components/icons';
-import { useAuth } from '@/shared/config/AuthProvider';
 import { useModals } from '@/shared/config/ModalProvider';
 import { cn } from '@/shared/lib/utils';
+import { useAuthState } from '@/shared/store/store';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import Indicator from './Indicator';
 
 export default function UserMenu() {
   const dataModal = useModals();
-  const dataUser = useAuth();
-  const [title, setTitle] = useState<boolean>(false);
+  const storage = useAuthState();
 
-  useEffect(() => {
-    const access = localStorage.getItem('access');
-    if (access !== null) {
-      setTitle(true);
-    } else {
-      setTitle(false);
-    }
-  }, [setTitle]);
   function handleChange() {
-    dataModal?.setShowModal(!dataModal.showModal);
+    if (storage.authToken !== '') {
+      storage.logOut();
+      localStorage.removeItem('token');
+    } else {
+      dataModal?.setShowModal(!dataModal.showModal);
+    }
   }
+
   return (
     <div className='flex sm:gap-1 lg:gap-2 xl:gap-5'>
       <Indicator value={99}>
@@ -55,7 +51,7 @@ export default function UserMenu() {
         className={cn('btn-action', 'group xl:w-auto xl:gap-2')}>
         <UserIcon />
         <span className='hidden text-base font-medium text-black xl:inline'>
-          {dataUser?.showEmail ? dataUser.email : 'Авторизація'}
+          {storage.authToken ? storage.userEmail : 'Авторизація'}
         </span>
       </button>
     </div>

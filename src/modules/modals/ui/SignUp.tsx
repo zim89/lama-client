@@ -1,11 +1,10 @@
 'use client';
 import eye from '@/assets/icons/additional/eye.svg';
 import eyeClose from '@/assets/icons/additional/eyeClose.svg';
-import axios from 'axios';
+import { AuthService } from '@/shared/services/auth.service';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import Endpoint from '../lib/endpoint';
 import Button from './button';
 import CheckBox from './checkbox';
 import Input from './input';
@@ -17,6 +16,8 @@ export default function SignUp() {
   const [password, setPassword] = useState<string>('');
   const [emailError, setEmailError] = useState<string>('');
   const [passwordError, setPasswordError] = useState<string>('');
+  const [errorClick, setErrorClick] = useState<string>('');
+  const [errorColor, setErrorColor] = useState<string>('');
   const [formValid, setFormValid] = useState<boolean>(false);
   const [passwordShown, setPasswordShown] = useState<boolean>(false);
 
@@ -25,9 +26,13 @@ export default function SignUp() {
     switch (e.target.name) {
       case 'email':
         setEmailError(validDate.email as string);
+        setErrorColor('');
+        setErrorClick('');
         break;
       case 'password':
         setPasswordError(validDate.password as string);
+        setErrorColor('');
+        setErrorClick('');
         break;
     }
   }
@@ -51,18 +56,24 @@ export default function SignUp() {
       email,
       password,
     };
-    axios
-      .post(Endpoint.AUTH.REGISTRATION, value)
-      .then(function (response) {
-        console.log(response);
+    const data = AuthService.registration(value);
+    data
+      .then((data) => {
+        console.log(data);
       })
       .catch(function (error) {
-        console.log(error);
+        const status = error.response.status;
+        if (status === 400 || status === 401) {
+          setErrorClick('Цей емейл вже зайнятий');
+          setErrorColor('#F50711');
+        }
       });
   };
-
   return (
-    <form className='px-5 lg:px-8' onSubmit={registrationHandler} id='authForm'>
+    <form
+      className='w-[23.44rem] px-5 sm:w-[30rem] md:w-auto lg:px-8'
+      onSubmit={registrationHandler}
+      id='authForm'>
       <Input
         title={'Електронна пошта*'}
         name='email'
@@ -72,7 +83,10 @@ export default function SignUp() {
         handleChange={(e) => setEmail(e.target.value)}
         onBlur={(e) => blurHandler(e)}
         error={emailError}
+        errorClick={errorClick}
         topError={'220px'}
+        topErrorCLick={'155px'}
+        borderColor={errorColor}
       />
       <div className='relative mb-14 mt-6'>
         <Input
@@ -85,6 +99,8 @@ export default function SignUp() {
           onBlur={(e) => blurHandler(e)}
           error={passwordError}
           topError={'65px'}
+          topErrorCLick={'0'}
+          borderColor={errorColor}
         />
         <Image
           className='absolute right-[15px] top-[35px] cursor-pointer'
