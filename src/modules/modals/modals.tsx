@@ -32,7 +32,7 @@ export default function Modals({ show }: TModalsProps) {
     <>
       {dataModal?.showModal && (
         <div
-          className='fixed right-0 top-0 z-20 flex size-full flex-col bg-black bg-opacity-50'
+          className='fixed right-0 top-0 z-40 flex size-full flex-col bg-black bg-opacity-50'
           onClick={handleClickOutSide}>
           <div className='fixed right-0 top-0 z-20 m-[0_auto] flex h-full w-full flex-col bg-white md:w-[23.5rem] md:items-stretch lg:w-[30rem]'>
             <div onClick={(e) => e.stopPropagation()}>
