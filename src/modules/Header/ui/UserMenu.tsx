@@ -1,9 +1,24 @@
-import { BasketIcon, UserIcon, HeartIcon } from '@/components/icons';
-import Indicator from './Indicator';
+'use client';
+import { BasketIcon, HeartIcon, UserIcon } from '@/components/icons';
+import { useModals } from '@/shared/config/ModalProvider';
 import { cn } from '@/shared/lib/utils';
+import { useAuthState } from '@/shared/store/store';
 import Link from 'next/link';
+import Indicator from './Indicator';
 
 export default function UserMenu() {
+  const dataModal = useModals();
+  const storage = useAuthState();
+
+  function handleChange() {
+    if (storage.authToken !== '') {
+      storage.logOut();
+      localStorage.removeItem('token');
+    } else {
+      dataModal?.setShowModal(!dataModal.showModal);
+    }
+  }
+
   return (
     <div className='flex sm:gap-1 lg:gap-2 xl:gap-5'>
       <Indicator value={99}>
@@ -30,15 +45,15 @@ export default function UserMenu() {
         </Link>
       </Indicator>
 
-      <Link
-        href={'/login'}
+      <button
+        onClick={handleChange}
         aria-label='Open user profile'
         className={cn('btn-action', 'group xl:w-auto xl:gap-2')}>
         <UserIcon />
         <span className='hidden text-base font-medium text-black xl:inline'>
-          Авторизація
+          {storage.authToken ? storage.userEmail : 'Авторизація'}
         </span>
-      </Link>
+      </button>
     </div>
   );
 }
