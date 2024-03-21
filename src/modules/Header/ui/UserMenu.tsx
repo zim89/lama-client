@@ -1,5 +1,6 @@
 'use client';
 import { BasketIcon, HeartIcon, UserIcon } from '@/components/icons';
+import Favorite from '@/modules/Favorite';
 import { useModals } from '@/shared/config/ModalProvider';
 import { cn } from '@/shared/lib/utils';
 import { useAuthState } from '@/shared/store/store';
@@ -9,6 +10,10 @@ import Indicator from './Indicator';
 export default function UserMenu() {
   const dataModal = useModals();
   const storage = useAuthState();
+
+  function handleShow() {
+    dataModal?.setFavoriteShow(!dataModal.favoriteShow);
+  }
 
   function handleChange() {
     if (storage.authToken !== '') {
@@ -34,15 +39,15 @@ export default function UserMenu() {
       </Indicator>
 
       <Indicator value={2}>
-        <Link
-          href={'/favorites'}
+        <button
+          onClick={handleShow}
           aria-label='Open favorites'
           className={cn('btn-action', 'group xl:w-auto xl:gap-2')}>
           <HeartIcon />
           <span className='hidden text-base font-medium text-black xl:inline'>
             Обране (0)
           </span>
-        </Link>
+        </button>
       </Indicator>
 
       <button
@@ -54,6 +59,7 @@ export default function UserMenu() {
           {storage.authToken ? storage.userEmail : 'Авторизація'}
         </span>
       </button>
+      {dataModal?.favoriteShow && <Favorite />}
     </div>
   );
 }

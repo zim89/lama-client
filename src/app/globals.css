@@ -82,3 +82,26 @@
 .brandsSlider .slick-track {
   @apply flex justify-between before:hidden after:hidden;
 }
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply hidden;
+}
+.scrollbar-thumb-transparent::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+body.modal-open {
+  @apply overflow-y-hidden pr-2;
+}
+::-webkit-scrollbar {
+  @apply w-2;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-[#ffffff];
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply rounded-[5px] bg-[#888];
+}
+::-webkit-scrollbar-track {
+  @apply bg-[#ffffff];
+}
