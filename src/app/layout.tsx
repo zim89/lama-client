@@ -3,10 +3,9 @@ import { Montserrat } from 'next/font/google'
 import React from 'react'
 import Footer from '@/modules/Footer'
 import Header from '@/modules/Header'
-import { SITE_NAME } from '@/shared/constants/seo.constants'
+import Providers from '@/shared/config/Providers'
 import { cn } from '@/shared/lib/utils'
 import './globals.css'
-import Providers from '@/app/providers'
 
 const montserrat = Montserrat({
   weight: ['300', '400', '500', '700'],
@@ -35,9 +34,11 @@ export default function RootLayout({
       >
         <Providers>
           <div className='grid min-h-screen grid-rows-[_auto_1fr_auto]'>
-            <Header />
-            <main>{children}</main>
-            <Footer />
+            <ModalsProvider>
+              <Header />
+              <main>{children}</main>
+              <Footer />
+            </ModalsProvider>
           </div>
         </Providers>
       </body>

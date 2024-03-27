@@ -304,7 +304,7 @@ export const hashColors = {
   },
 };
 
-export const useMediaQuery = (query) => {
+export const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false);
 
   useEffect(() => {

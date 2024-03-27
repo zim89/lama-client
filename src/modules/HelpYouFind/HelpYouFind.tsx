@@ -227,7 +227,7 @@ export default function HelpYouFind() {
               {ageButton.map(name => (
                 <>
                   <button
-                    className='absolute grid cursor-pointer items-center rounded-full border border-gray-500  text-center text-xs font-medium [word-spacing:1rem]'
+                    className='absolute z-20 grid cursor-pointer items-center rounded-full border  border-gray-500 text-center text-xs font-medium [word-spacing:1rem]'
                     id={name}
                     onClick={() => handleClickAge(name)}
                     onMouseEnter={changeBackground}
@@ -252,7 +252,7 @@ export default function HelpYouFind() {
                   </button>
                 </>
               ))}
-              <div className='relative left-[70px] top-[60px] xs:h-[12.75rem] sm:left-[118.5px] md:left-[75px] md:top-[83px]'>
+              <div className='relative left-[70px] top-[60px] z-10 xs:h-[12.75rem] sm:left-[118.5px] md:left-[75px] md:top-[83px]'>
                 <Image
                   src={handleChangeImage() as any}
                   alt={'image'}
@@ -322,6 +322,9 @@ export default function HelpYouFind() {
                       borderColor: categoryValue[name] && '#A663EE'
                     }}
                   >
+                      backgroundColor: categoryValue[name] ? '#FAF6FD' : '',
+                      borderColor: categoryValue[name] ? '#A663EE' : '',
+                    }}>
                     {categoryHash[name].title}
                   </button>
                 </>

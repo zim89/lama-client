@@ -36,15 +36,6 @@ export const categoryLinks = [
   { label: 'Шкільна форма', href: '/catalog/clothes' },
 ] as const;
 
-export const serviceLinks = [
-  { label: 'Доставка і оплата', href: '/shipping&payment' },
-  { label: 'Обмін та повернення', href: '/exchange&returns' },
-  { label: 'Таблиці розмірів', href: '/sizes' },
-  { label: 'Бонусна програма', href: '/loyalty' },
-  { label: 'Правила магазину', href: '/rules' },
-  { label: 'Зв’язатися з нами', href: '/contact' },
-] as const;
-
 export const socialLinks = [
   {
     label: 'TikTok',
