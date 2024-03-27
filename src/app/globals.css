@@ -86,6 +86,9 @@
 .custom-scrollbar::-webkit-scrollbar-thumb {
   @apply hidden;
 }
+.custom-scrollbar::-webkit-scrollbar {
+  @apply w-0;
+}
 .scrollbar-thumb-transparent::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
@@ -94,14 +97,17 @@ body.modal-open {
   @apply overflow-y-hidden pr-2;
 }
 ::-webkit-scrollbar {
-  @apply w-2;
+  @apply w-[6px];
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-[#ffffff];
+  @apply bg-gray-300;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply rounded-[5px] bg-[#888];
+  @apply bg-gray-500;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-[#ffffff];
+  @apply w-[2px] bg-violet-300;
+}
+::-webkit-scrollbar-track:hover {
+  @apply w-[2px] bg-gray-300;
 }

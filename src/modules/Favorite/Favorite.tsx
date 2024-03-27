@@ -3,9 +3,7 @@ import BoyIcon from '@/components/icons/BoyIcon';
 import GirlIcon from '@/components/icons/GirlIcon';
 import { useModals } from '@/shared/config/ModalProvider';
 import { useStore } from '@/shared/store/store';
-import axios from 'axios';
 import Image from 'next/image';
-import { useMemo } from 'react';
 import cross from '../../assets/icons/additional/exit.svg';
 import heart from '../../assets/icons/additional/heart.svg';
 import redHeart from '../../assets/icons/additional/redHeart.svg';
@@ -29,18 +27,12 @@ export default function Favorite() {
       return false;
     }
   }
-  useMemo(() => {
-    axios.get('http://localhost:8000/api/products/1').then((data) => {
-      console.log(data.data);
-      addFavorite(data.data);
-    });
-  }, []);
 
   return (
     <div
       onClick={handleClickClose}
-      className='fixed left-0 top-0 z-40 flex size-full flex-col bg-black bg-opacity-50'>
-      <div className='fixed right-0 top-0 z-20 m-[0_auto] flex h-full w-[33.75rem] flex-col bg-white md:items-stretch '>
+      className='fixed left-0 top-0 z-40 size-full flex-col bg-black bg-opacity-50'>
+      <div className='fixed right-0 top-0 z-20 flex h-full w-full flex-col bg-white md:w-[32.4rem] md:items-stretch lg:w-[33.75rem] '>
         <div onClick={(e) => e.stopPropagation()}>
           <div className='flex w-full justify-between border-b border-gray-500 bg-gray-100'>
             <h5 className='text-grey-900 py-5 pl-5 text-sm font-normal'>
@@ -51,24 +43,24 @@ export default function Favorite() {
             </button>
           </div>
           {displays() ? (
-            <div className='px-8 pt-2.5'>
-              <div className='flex justify-between'>
+            <div className='px-5 pt-2.5 lg:px-8'>
+              <div className='mx-auto grid w-[20.95rem] grid-cols-2 pb-[1.13rem] sm:w-[27.25rem] md:mx-0 md:w-full'>
                 <span className='text-base font-medium'>
                   {amountGoods} товарів
                 </span>
                 <button
-                  className='flex items-center text-base font-medium text-[#727076]'
+                  className='flex justify-end text-base font-medium text-[#727076]'
                   onClick={clearFavorites}>
                   Видалити все
                 </button>
               </div>
               <ScrollableComponent>
-                <div className='flex w-[30.4rem] flex-wrap content-start gap-5'>
+                <div className='grid w-[20.9rem] grid-cols-2 content-start gap-4 sm:mx-auto sm:w-[27.25rem] sm:gap-5 md:mx-auto md:ms-auto md:flex md:w-[30rem] md:flex-wrap md:pl-0'>
                   {favorites.map((product) => (
                     <div
                       key={product.id}
-                      className='relative h-[23rem] w-[47.5%] rounded-xl border border-gray-300'>
-                      <div className='absolute flex flex-col gap-2 pl-2 pt-2'>
+                      className='relative flex h-[17.7rem] w-[10rem] flex-col justify-between rounded-xl border border-gray-300 sm:w-[13.1rem] md:h-[19.6rem] md:w-[14.35rem] lg:h-[23rem] lg:w-[47.5%]'>
+                      <div className='absolute z-20 flex flex-col gap-2 pl-2 pt-2'>
                         <button
                           className='group flex h-8 w-8 items-center justify-center rounded-full bg-gray-100'
                           onClick={() => removeFavorite(product.id)}>
@@ -78,28 +70,32 @@ export default function Favorite() {
                           <SuitcaseIconFavorite className='h-3 w-3 stroke-violet-500 group-hover:stroke-violet-700 group-active:fill-violet-700' />
                         </button>
                       </div>
-                      <div className='absolute left-[5.75rem] flex h-8 w-10 justify-center rounded-b-full bg-gray-100'>
+                      <div className='absolute left-[3.75rem] z-20 flex h-8 w-10 justify-center rounded-b-full bg-gray-100 sm:left-[5.25rem] md:left-[6rem]'>
                         <Image src={redHeart} alt={'heart'} />
                       </div>
                       {product.discount && (
-                        <div className='absolute right-0 mr-2 mt-2 flex h-7 w-16 items-center justify-center rounded-2xl bg-amber-500'>
-                          <p className='text-sm font-medium'>-20%</p>
+                        <div className='absolute right-0 z-20 mr-2 mt-2 flex h-6 w-10 items-center justify-center rounded-2xl bg-amber-500 md:h-7 md:w-16'>
+                          <p className='text-xs font-medium md:text-sm'>-20%</p>
                         </div>
                       )}
-                      <Image
-                        src={product.product_images[1]?.product_image}
-                        alt={product.name}
-                        width={230}
-                        height={220}
-                        className='rounded-t-xl bg-[#f2f2f4]'
-                      />
-                      <div className='absolute bottom-[4.25rem] right-[0.75rem]'>
+                      <div className='z-10  h-[13rem] w-full md:h-[14.25rem]'>
+                        <Image
+                          src={product.product_images[0]?.product_image}
+                          alt={product.name}
+                          width={230}
+                          height={220}
+                          className='w-full rounded-t-xl'
+                        />
+                      </div>
+                      <div className='absolute bottom-[5rem] right-2 z-20 md:bottom-[5.5rem] md:right-2.5'>
                         {product.male === 0 && <GirlIcon />}
                         {product.male === 1 && <BoyIcon />}
                       </div>
-                      <div className='px-3'>
-                        <h3 className='pt-2 text-sm'>{product.name}</h3>
-                        <div className='flex pb-3 pt-1 '>
+                      <div className='z-20 flex flex-col content-start justify-center rounded-b-xl bg-white p-2'>
+                        <h3 className='line-clamp-2 text-xs md:text-sm'>
+                          {product.name}
+                        </h3>
+                        <div className='flex pt-1'>
                           <p className='text-sm font-medium'>
                             {product.price}₴
                           </p>

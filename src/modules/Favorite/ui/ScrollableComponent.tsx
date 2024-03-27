@@ -25,7 +25,7 @@ export default function ScrollableComponent({ children }: any) {
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDragging || !container) return;
       const y = e.pageY - (container?.offsetTop ?? 0);
-      const walk = (y - startY) * 2; // Adjust this multiplier for smoother scrolling
+      const walk = (y - startY) * 2;
       container.scrollTop = scrollTop - walk;
     };
 
@@ -50,9 +50,9 @@ export default function ScrollableComponent({ children }: any) {
 
   return (
     <div
-      className='custom-scrollbar absolute flex h-[90vh] w-full pt-5'
+      className='custom-scrollbar flex h-[90vh] w-full justify-center overflow-y-auto xs:left-0 md:absolute'
       ref={containerRef}
-      style={{ overflowY: 'auto', cursor: isDragging ? 'grabbing' : '' }}>
+      style={{ cursor: isDragging ? 'grabbing' : '' }}>
       {children}
     </div>
   );
