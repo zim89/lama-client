@@ -1,29 +1,28 @@
 import {
-  dehydrate,
   HydrationBoundary,
   QueryClient,
-} from '@tanstack/react-query';
-
-import TopList from '@/modules/TopSection/ui/TopList';
-import { fetchTopProducts } from '@/shared/api/product-api';
-import { queryKeys } from '@/shared/lib/constats';
+  dehydrate
+} from '@tanstack/react-query'
+import TopList from '@/modules/TopSection/ui/TopList'
+import { QUERY_KEYS } from '@/shared/constants/query.constants'
+import { productService } from '@/shared/services/product.service'
 
 export default async function TopSection() {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient()
 
   await queryClient.prefetchQuery({
-    queryKey: [queryKeys.TOP],
-    queryFn: fetchTopProducts,
-  });
+    queryKey: [QUERY_KEYS.TOP],
+    queryFn: () => productService.getTopProducts()
+  })
 
   return (
-    <div className={'section'}>
-      <div className={'container'}>
-        <h2 className={'title'}>Наш топ</h2>
+    <div className='section'>
+      <div className='container'>
+        <h2 className='title'>Наш топ</h2>
         <HydrationBoundary state={dehydrate(queryClient)}>
           <TopList />
         </HydrationBoundary>
       </div>
     </div>
-  );
+  )
 }

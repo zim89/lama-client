@@ -3,7 +3,7 @@ import SearchMenu from './SearchMenu';
 import Link from 'next/link';
 import { BoyIcon, GirlIcon } from '@/components/icons';
 
-export default function Toolbar() {
+export default function GenderBar() {
   return (
     <>
       <div className='flex sm:gap-1 md:gap-2 lg:hidden'>
