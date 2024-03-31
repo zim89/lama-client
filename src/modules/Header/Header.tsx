@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Modals from '../modals/modals';
 import HeaderSlider from './ui/HeaderSlider';
 import Logo from './ui/Logo';
-import Toolbar from './ui/Toolbar';
+import GenderBar from './ui/GenderBar';
 import UserMenu from './ui/UserMenu';
 
 export default function Header() {
@@ -23,7 +23,7 @@ export default function Header() {
       <div className='bg-amber-300'>
         <div className='container'>
           <nav className='flex items-center justify-between pb-2 pt-11 sm:pt-[61px] md:pt-2 lg:items-end lg:pb-5 lg:pt-6'>
-            <Toolbar />
+            <GenderBar />
             <Logo />
             <UserMenu />
             <Modals />
