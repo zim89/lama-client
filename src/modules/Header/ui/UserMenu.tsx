@@ -1,5 +1,6 @@
 'use client';
 import { BasketIcon, HeartIcon, UserIcon } from '@/components/icons';
+import AuthModal from '@/modules/Authication';
 import Favorite from '@/modules/Favorite';
 import { useModals } from '@/shared/config/ModalProvider';
 import { cn } from '@/shared/lib/utils';
@@ -21,6 +22,7 @@ export default function UserMenu() {
       localStorage.removeItem('token');
     } else {
       dataModal?.setShowModal(!dataModal.showModal);
+      console.log(dataModal?.showModal);
     }
   }
 
@@ -59,6 +61,7 @@ export default function UserMenu() {
           {storage.authToken ? storage.userEmail : 'Авторизація'}
         </span>
       </button>
+      {dataModal?.showModal && <AuthModal />}
       {dataModal?.favoriteShow && <Favorite />}
     </div>
   );

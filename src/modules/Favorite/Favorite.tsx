@@ -1,4 +1,5 @@
 'use client';
+import ModalPortal from '@/components/ModalPortal';
 import BoyIcon from '@/components/icons/BoyIcon';
 import GirlIcon from '@/components/icons/GirlIcon';
 import { useModals } from '@/shared/config/ModalProvider';
@@ -29,9 +30,7 @@ export default function Favorite() {
   }
 
   return (
-    <div
-      onClick={handleClickClose}
-      className='fixed left-0 top-0 z-40 size-full flex-col bg-black bg-opacity-50'>
+    <ModalPortal onClose={handleClickClose}>
       <div className='fixed right-0 top-0 z-20 flex h-full w-full flex-col bg-white md:w-[32.4rem] md:items-stretch lg:w-[33.75rem] '>
         <div onClick={(e) => e.stopPropagation()}>
           <div className='flex w-full justify-between border-b border-gray-500 bg-gray-100'>
@@ -128,6 +127,6 @@ export default function Favorite() {
           )}
         </div>
       </div>
-    </div>
+    </ModalPortal>
   );
 }

@@ -87,7 +87,7 @@ export default function HelpYouFind() {
     setIsActive(false);
   };
 
-  function changeBackground(e) {
+  function changeBackground(e: any) {
     if (e.target.id === age) {
       e.target.style.backgroundColor = hashColors[gender].backgroundColorAge;
       e.target.style.borderColor = '';

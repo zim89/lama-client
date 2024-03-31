@@ -94,7 +94,7 @@
 }
 
 body.modal-open {
-  @apply overflow-y-hidden pr-2;
+  @apply overflow-y-hidden pr-[6px];
 }
 ::-webkit-scrollbar {
   @apply w-[6px];
