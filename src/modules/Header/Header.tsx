@@ -1,7 +1,6 @@
 import { HeartWithHandIcon, SearchIcon } from '@/components/icons';
 import { cn } from '@/shared/lib/utils';
 import Link from 'next/link';
-import Modals from '../modals/modals';
 import HeaderSlider from './ui/HeaderSlider';
 import Logo from './ui/Logo';
 import GenderBar from './ui/GenderBar';
@@ -26,10 +25,11 @@ export default function Header() {
             <GenderBar />
             <Logo />
             <UserMenu />
-            <Modals />
           </nav>
         </div>
       </div>
+
+      <div id='portal-root' />
 
       {/*Additional Navbar*/}
       <div className='hidden bg-gray-100 lg:block'>

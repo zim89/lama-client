@@ -83,6 +83,35 @@
   @apply flex justify-between before:hidden after:hidden;
 }
 
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply hidden;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  @apply w-0;
+}
+.scrollbar-thumb-transparent::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+body.modal-open {
+  @apply overflow-y-hidden pr-[6px];
+}
+::-webkit-scrollbar {
+  @apply w-[6px];
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+::-webkit-scrollbar-track {
+  @apply w-[2px] bg-violet-300;
+}
+::-webkit-scrollbar-track:hover {
+  @apply w-[2px] bg-gray-300;
+}
+
 /***********************/
 /*      Pagination     */
 /***********************/

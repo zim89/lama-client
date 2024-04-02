@@ -1,17 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-
-interface AuthState {
-  signUpToken: string;
-  setSignUpToken: (token: string) => void;
-  userEmail: string;
-  setUserEmail: (email: string) => void;
-  authToken: string;
-  setAuthToken: (token: string) => void;
-  logOut: () => void;
-  expiresAt: number;
-  setExpiresAt: (expiresAt: number) => void;
-}
+import { AuthState, FavoriteState, ScrollState } from '../types/types';
 
 export const useAuthState = create<AuthState>()(
   persist(
@@ -31,3 +20,23 @@ export const useAuthState = create<AuthState>()(
     }
   )
 );
+
+export const useScrollStore = create<ScrollState>((set) => ({
+  isDragging: false,
+  startY: 0,
+  scrollTop: 0,
+  setIsDragging: (isDragging) => set({ isDragging }),
+  setStartY: (startY) => set({ startY }),
+  setScrollTop: (scrollTop) => set({ scrollTop }),
+}));
+
+export const useStore = create<FavoriteState>((set) => ({
+  favorites: [],
+  addFavorite: (product) =>
+    set((state) => ({ favorites: [...state.favorites, product] })),
+  removeFavorite: (productId) =>
+    set((state) => ({
+      favorites: state.favorites.filter((product) => product.id !== productId),
+    })),
+  clearFavorites: () => set({ favorites: [] }),
+}));
