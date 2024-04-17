@@ -1,33 +1,44 @@
-'use client';
-import { useState } from 'react';
+'use client'
+
+import { ChevronDown } from 'lucide-react'
+import Link from 'next/link'
+import { useState } from 'react'
 import {
   Collapsible,
   CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible';
-import { ChevronDown } from 'lucide-react';
-import Link from 'next/link';
-import { cn } from '@/shared/lib/utils';
+  CollapsibleTrigger
+} from '@/components/ui/collapsible'
+import { cn } from '@/shared/lib/utils'
+import styles from '../styles/FooterAccordion.module.css'
+import { accordionList } from '@/shared/data/footer.data'
+import { categoryLinks, serviceLinks } from '@/shared/data/links.data'
 
-import { categoryLinks } from '../lib/data';
-import styles from '../styles/FooterAccordion.module.css';
-import { serviceLinks } from '@/shared/lib/data';
-
-function FooterAccordion() {
-  const [isOpenPopular, setIsOpenPopular] = useState(false);
-  const [isOpenHelp, setIsOpenHelp] = useState(false);
-  const [isOpenContact, setIsOpenContact] = useState(false);
+export default function FooterAccordion() {
+  const [isOpenPopular, setIsOpenPopular] = useState(false)
+  const [isOpenHelp, setIsOpenHelp] = useState(false)
+  const [isOpenContact, setIsOpenSupport] = useState(false)
 
   const onCloseAll = () => {
-    setIsOpenPopular(false);
-    setIsOpenHelp(false);
-    setIsOpenContact(false);
-  };
+    setIsOpenPopular(false)
+    setIsOpenHelp(false)
+    setIsOpenSupport(false)
+  }
 
   return (
-    <>
-      <Collapsible open={isOpenPopular} onOpenChange={setIsOpenPopular}>
-        <CollapsibleTrigger className={cn('group', styles.trigger)}>
+    <div>
+      <Collapsible
+        open={isOpenPopular}
+        onOpenChange={setIsOpenPopular}
+      >
+        <CollapsibleTrigger
+          className={cn(
+            'group',
+            styles.trigger,
+            isOpenPopular
+              ? 'border-t border-t-gray-500'
+              : 'border-b border-b-gray-500'
+          )}
+        >
           Популярні категорії
           <ChevronDown
             className={cn(
@@ -36,14 +47,21 @@ function FooterAccordion() {
             )}
           />
         </CollapsibleTrigger>
-        <CollapsibleContent className={styles.content}>
-          <ul>
-            {categoryLinks.map((link) => (
-              <li key={link.label}>
+        <CollapsibleContent className={cn(styles.content)}>
+          <ul className='grid grid-cols-1'>
+            {categoryLinks.map(link => (
+              <li
+                key={link.label}
+                className={cn(
+                  styles.link,
+                  link.label === 'Самим маленьким' && 'order-last'
+                )}
+              >
                 <Link
                   href={link.href}
-                  className={styles.link}
-                  onClick={onCloseAll}>
+                  className='textLink'
+                  onClick={onCloseAll}
+                >
                   {link.label}
                 </Link>
               </li>
@@ -52,7 +70,10 @@ function FooterAccordion() {
         </CollapsibleContent>
       </Collapsible>
 
-      <Collapsible open={isOpenHelp} onOpenChange={setIsOpenHelp}>
+      <Collapsible
+        open={isOpenHelp}
+        onOpenChange={setIsOpenHelp}
+      >
         <CollapsibleTrigger className={cn('group', styles.trigger)}>
           Допомога
           <ChevronDown
@@ -64,12 +85,13 @@ function FooterAccordion() {
         </CollapsibleTrigger>
         <CollapsibleContent className={styles.content}>
           <ul>
-            {serviceLinks.map((link) => (
+            {serviceLinks.map(link => (
               <li key={link.label}>
                 <Link
                   href={link.href}
                   className={styles.link}
-                  onClick={onCloseAll}>
+                  onClick={onCloseAll}
+                >
                   {link.label}
                 </Link>
               </li>
@@ -78,7 +100,10 @@ function FooterAccordion() {
         </CollapsibleContent>
       </Collapsible>
 
-      <Collapsible open={isOpenContact} onOpenChange={setIsOpenContact}>
+      <Collapsible
+        open={isOpenContact}
+        onOpenChange={setIsOpenSupport}
+      >
         <CollapsibleTrigger className={cn('group', styles.trigger)}>
           Контакти
           <ChevronDown
@@ -95,15 +120,16 @@ function FooterAccordion() {
             <li className={styles.link}>Неділя - вихідний</li>
             <li className={styles.link}>0800-353-55-88</li>
             <li className={styles.link}>
-              <a href='mailto:lamastore@lama.com' className='decoration-0'>
+              <a
+                href='mailto:lamastore@lama.com'
+                className='decoration-0'
+              >
                 lamastore@lama.com
               </a>
             </li>
           </ul>
         </CollapsibleContent>
       </Collapsible>
-    </>
-  );
+    </div>
+  )
 }
-
-export default FooterAccordion;

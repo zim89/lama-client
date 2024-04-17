@@ -1,31 +1,53 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { cn } from '@/shared/lib/utils';
-import {
-  TruckIcon,
-  ArticleIcon,
-  LabelIcon,
-  GiftIcon,
-} from '@/components/icons';
+import Image from 'next/image'
+import Link from 'next/link'
 import {
   categoryLinks,
   featureList,
-  payList,
-  socialLinks,
-} from '@/modules/Footer/lib/data';
-import FooterAccordion from './ui/FooterAccordion';
-import logoMobileImg from '@/assets/icons/logo/logo-tablet.png';
-import logoTabletImg from '@/assets/icons/logo/logo-desktop.png';
-import styles from './styles/footer.module.css';
-import { serviceLinks } from '@/shared/lib/data';
+  socialLinks
+} from '@/modules/Footer/lib/data'
+import { InstagramIcon } from '@/components/IconsPack'
+import { ArticleIcon, GiftIcon, LabelIcon, TruckIcon } from '@/components/icons'
+import logoTabletImg from '@/assets/icons/logo/logo-desktop.png'
+import logoMobileImg from '@/assets/icons/logo/logo-tablet.png'
+import { serviceLinks } from '@/shared/lib/data'
+import { cn } from '@/shared/lib/utils'
+import styles from './styles/footer.module.css'
+import FooterAccordion from './ui/FooterAccordion'
+import { payList } from '@/shared/data/footer.data'
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
-      {/* TOP Section*/}
+    <footer className='bg-secondary-100 py-8'>
       <div className='container'>
+        <div className='space-y-8'>
+          <FooterAccordion />
+
+          <div className='flex items-center justify-between py-2'>
+            <p className='text-[9px]/4 font-medium text-muted'>
+              © 2024 Babby’s
+            </p>
+            <p className='flex items-center gap-1 text-black'>
+              <InstagramIcon />
+              Instagram
+            </p>
+            <ul className='flex gap-2'>
+              {payList.map(item => (
+                <li key={item.label}>
+                  <Image
+                    src={item.image_src}
+                    alt={item.label}
+                    width={24}
+                    height={24}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {/* TOP Section*/}
+      {/* <div className='container'>
         <div className={styles.topWrap}>
-          {/* Features */}
           <ul className={styles.featureList}>
             {featureList.map((item) => (
               <li key={item.label} className={styles.featureItem}>
@@ -38,7 +60,6 @@ export default function Footer() {
             ))}
           </ul>
 
-          {/* Logo */}
           <Image
             src={logoMobileImg}
             alt={'Lama logo'}
@@ -55,30 +76,31 @@ export default function Footer() {
             />
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* CENTER Section */}
-      <div className='md:hidden'>
+      {/* <div className='md:hidden'>
         <FooterAccordion />
 
-        {/* Social Links */}
         <ul className={styles.socialMobileList}>
-          {socialLinks.map((item) => {
-            const LinkIcon = item.icon;
+          {socialLinks.map(item => {
+            const LinkIcon = item.icon
             return (
               <li key={item.label}>
-                <a href={item.link} target='_blank'>
+                <a
+                  href={item.link}
+                  target='_blank'
+                >
                   <LinkIcon />
                 </a>
               </li>
-            );
+            )
           })}
         </ul>
-      </div>
+      </div> */}
 
-      <div className={cn('container', 'hidden md:block')}>
+      {/* <div className={cn('container', 'hidden md:block')}>
         <div className={styles.centerWrap}>
-          {/* Contacts */}
           <div className={styles.contactWrap}>
             <div>
               <h3>Контакти</h3>
@@ -90,7 +112,10 @@ export default function Footer() {
                 <li className={styles.item}>Неділя - вихідний</li>
                 <li className={styles.item}>0800-353-55-88</li>
                 <li className={styles.item}>
-                  <a href='mailto:lamastore@lama.com' className='decoration-0'>
+                  <a
+                    href='mailto:lamastore@lama.com'
+                    className='decoration-0'
+                  >
                     lamastore@lama.com
                   </a>
                 </li>
@@ -98,46 +123,60 @@ export default function Footer() {
             </div>
 
             <ul className='flex items-center gap-4 lg:hidden'>
-              {socialLinks.map((item) => {
-                const LinkIcon = item.icon;
+              {socialLinks.map(item => {
+                const LinkIcon = item.icon
                 return (
-                  <li key={item.label} className={styles.socialItem}>
+                  <li
+                    key={item.label}
+                    className={styles.socialItem}
+                  >
                     <a
                       href={item.link}
                       target={'_blank'}
-                      className={styles.socialItem}>
+                      className={styles.socialItem}
+                    >
                       <LinkIcon />
                     </a>
                   </li>
-                );
+                )
               })}
             </ul>
           </div>
 
-          {/* Socials */}
           <div className={styles.socialWrap}>
             <h3 className='pb-2 xl:pb-4'>Слідкуйте за нами</h3>
             <ul className={styles.socialList}>
-              {socialLinks.map((item) => {
-                const LinkIcon = item.icon;
+              {socialLinks.map(item => {
+                const LinkIcon = item.icon
                 return (
-                  <li key={item.label} className={styles.socialItem}>
-                    <a href={item.link} target={'_blank'}>
+                  <li
+                    key={item.label}
+                    className={styles.socialItem}
+                  >
+                    <a
+                      href={item.link}
+                      target={'_blank'}
+                    >
                       <LinkIcon />
                     </a>
                   </li>
-                );
+                )
               })}
             </ul>
           </div>
 
-          {/* Popular */}
           <div>
             <h3>Популярні категорії</h3>
             <ul>
-              {categoryLinks.map((link) => (
-                <li key={link.label} className={styles.item}>
-                  <Link href={link.href} className='textLink'>
+              {categoryLinks.map(link => (
+                <li
+                  key={link.label}
+                  className={styles.item}
+                >
+                  <Link
+                    href={link.href}
+                    className='textLink'
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -145,13 +184,18 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Help */}
           <div>
             <h3>Допомога</h3>
             <ul>
-              {serviceLinks.map((link) => (
-                <li key={link.label} className={styles.item}>
-                  <Link href={link.href} className='textLink'>
+              {serviceLinks.map(link => (
+                <li
+                  key={link.label}
+                  className={styles.item}
+                >
+                  <Link
+                    href={link.href}
+                    className='textLink'
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -159,14 +203,14 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* BOTTOM Section */}
-      <div className='md:container'>
+      {/* <div className='md:container'>
         <div className={styles.bottomWrap}>
           <p>&#169; 2023 Lama store</p>
           <ul className={styles.payList}>
-            {payList.map((item) => (
+            {payList.map(item => (
               <li key={item.label}>
                 <Image
                   src={item.image_src}
@@ -186,7 +230,7 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-      </div>
+      </div> */}
     </footer>
-  );
+  )
 }

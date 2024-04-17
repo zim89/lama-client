@@ -3,9 +3,11 @@ import { Montserrat } from 'next/font/google'
 import React from 'react'
 import Footer from '@/modules/Footer'
 import Header from '@/modules/Header'
-import Providers from '@/shared/config/Providers'
+import { SITE_NAME } from '@/shared/constants/seo.constants'
+import { ModalsProvider } from '@/shared/config/ModalProvider'
 import { cn } from '@/shared/lib/utils'
 import './globals.css'
+import Providers from './providers'
 
 const montserrat = Montserrat({
   weight: ['300', '400', '500', '700'],
