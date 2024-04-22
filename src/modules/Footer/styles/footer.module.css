@@ -1,5 +1,5 @@
 .footer {
-  @apply bg-gray-300 pb-2 pt-8 sm:pb-3 md:pb-4 md:pt-10 lg:pb-3 xl:pb-4 xl:pt-16;
+  @apply bg-secondary-300 py-8;
 }
 
 .footer h3 {
