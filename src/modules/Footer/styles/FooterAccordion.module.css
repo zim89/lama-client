@@ -10,6 +10,14 @@
   @apply pb-2;
 }
 
-.link {
+.item {
   @apply py-3 text-xs;
+}
+
+.list {
+  @apply grid grid-cols-1;
+}
+
+.icon {
+  @apply size-4 stroke-gray-900;
 }

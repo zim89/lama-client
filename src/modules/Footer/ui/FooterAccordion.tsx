@@ -3,6 +3,7 @@
 import { ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
+import { ClockIcon, MailIcon, MapPinIcon } from '@/components/IconsPack'
 import {
   Collapsible,
   CollapsibleContent,
@@ -10,13 +11,12 @@ import {
 } from '@/components/ui/collapsible'
 import { cn } from '@/shared/lib/utils'
 import styles from '../styles/FooterAccordion.module.css'
-import { accordionList } from '@/shared/data/footer.data'
-import { categoryLinks, serviceLinks } from '@/shared/data/links.data'
+import { footerCategoryLinks, helpLinks } from '@/shared/data/links.data'
 
 export default function FooterAccordion() {
   const [isOpenPopular, setIsOpenPopular] = useState(false)
   const [isOpenHelp, setIsOpenHelp] = useState(false)
-  const [isOpenContact, setIsOpenSupport] = useState(false)
+  const [isOpenSupport, setIsOpenSupport] = useState(false)
 
   const onCloseAll = () => {
     setIsOpenPopular(false)
@@ -26,6 +26,7 @@ export default function FooterAccordion() {
 
   return (
     <div>
+      {/* Популярні категорії */}
       <Collapsible
         open={isOpenPopular}
         onOpenChange={setIsOpenPopular}
@@ -34,9 +35,7 @@ export default function FooterAccordion() {
           className={cn(
             'group',
             styles.trigger,
-            isOpenPopular
-              ? 'border-t border-t-gray-500'
-              : 'border-b border-b-gray-500'
+            isOpenPopular ? 'border-0' : 'border-b border-b-gray-300'
           )}
         >
           Популярні категорії
@@ -47,15 +46,17 @@ export default function FooterAccordion() {
             )}
           />
         </CollapsibleTrigger>
-        <CollapsibleContent className={cn(styles.content)}>
-          <ul className='grid grid-cols-1'>
-            {categoryLinks.map(link => (
+        <CollapsibleContent
+          className={cn(
+            styles.content,
+            isOpenPopular ? 'border-b border-b-gray-300' : 'border-0'
+          )}
+        >
+          <ul className={styles.list}>
+            {footerCategoryLinks.map(link => (
               <li
                 key={link.label}
-                className={cn(
-                  styles.link,
-                  link.label === 'Самим маленьким' && 'order-last'
-                )}
+                className={styles.item}
               >
                 <Link
                   href={link.href}
@@ -70,11 +71,18 @@ export default function FooterAccordion() {
         </CollapsibleContent>
       </Collapsible>
 
+      {/* Допомога */}
       <Collapsible
         open={isOpenHelp}
         onOpenChange={setIsOpenHelp}
       >
-        <CollapsibleTrigger className={cn('group', styles.trigger)}>
+        <CollapsibleTrigger
+          className={cn(
+            'group',
+            styles.trigger,
+            isOpenHelp ? 'border-0' : 'border-b border-b-gray-300'
+          )}
+        >
           Допомога
           <ChevronDown
             className={cn(
@@ -83,13 +91,20 @@ export default function FooterAccordion() {
             )}
           />
         </CollapsibleTrigger>
-        <CollapsibleContent className={styles.content}>
-          <ul>
-            {serviceLinks.map(link => (
-              <li key={link.label}>
+        <CollapsibleContent
+          className={cn(
+            styles.content,
+            isOpenHelp ? 'border-b border-b-gray-300' : 'border-0'
+          )}
+        >
+          <ul className={styles.list}>
+            {helpLinks.map(link => (
+              <li
+                key={link.label}
+                className={styles.item}
+              >
                 <Link
                   href={link.href}
-                  className={styles.link}
                   onClick={onCloseAll}
                 >
                   {link.label}
@@ -100,12 +115,13 @@ export default function FooterAccordion() {
         </CollapsibleContent>
       </Collapsible>
 
+      {/* Служба підтримки */}
       <Collapsible
-        open={isOpenContact}
+        open={isOpenSupport}
         onOpenChange={setIsOpenSupport}
       >
         <CollapsibleTrigger className={cn('group', styles.trigger)}>
-          Контакти
+          Служба підтримки
           <ChevronDown
             className={cn(
               styles.triggerIcon,
@@ -115,17 +131,51 @@ export default function FooterAccordion() {
         </CollapsibleTrigger>
         <CollapsibleContent className={styles.content}>
           <ul>
-            <li className={styles.link}>місто Київ, вул. Димитрівська 112/2</li>
-            <li className={styles.link}>Пн-Сб 09:00-19:00</li>
-            <li className={styles.link}>Неділя - вихідний</li>
-            <li className={styles.link}>0800-353-55-88</li>
-            <li className={styles.link}>
-              <a
-                href='mailto:lamastore@lama.com'
-                className='decoration-0'
-              >
-                lamastore@lama.com
-              </a>
+            <li className={styles.item}>
+              <p className='flex gap-2'>
+                <a
+                  href='tel:380636235212'
+                  className='decoration-0'
+                >
+                  +380 63 623 52 12
+                </a>
+                <span>Відділ продажу</span>
+              </p>
+            </li>
+            <li className={styles.item}>
+              <p className='flex gap-2'>
+                <a
+                  href='tel:380636235212'
+                  className='decoration-0'
+                >
+                  +380 63 623 52 12
+                </a>
+                <span>Контакт для співпраці</span>
+              </p>
+            </li>
+            <li className={styles.item}>
+              <p className='flex gap-1 items-center'>
+                <MailIcon />
+                <a
+                  href='mailto:babbystore@gmail.com'
+                  className='decoration-0'
+                >
+                  babbystore@gmail.com
+                </a>
+              </p>
+            </li>
+            <li className={styles.item}>
+              <p className='flex gap-1 items-center'>
+                <ClockIcon />
+                <span>Пн-Нд 10:00-18:00</span>
+              </p>
+            </li>
+            <li className={styles.item}>
+              <p className='flex gap-1 items-center'>
+                <MapPinIcon />
+
+                <span>вул. Кожедуба, 3а, м. Буча, Київська обл.</span>
+              </p>
             </li>
           </ul>
         </CollapsibleContent>
