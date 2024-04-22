@@ -31,9 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body
-        className={cn('h-full font-sans antialiased', montserrat.className)}
-      >
+      <body className={cn('h-full antialiased', montserrat.className)}>
         <Providers>
           <div className='grid min-h-screen grid-rows-[_auto_1fr_auto]'>
             <ModalsProvider>
