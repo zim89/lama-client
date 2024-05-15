@@ -1,78 +1,50 @@
-import { HeartWithHandIcon, SearchIcon } from '@/components/icons';
-import { cn } from '@/shared/lib/utils';
-import Link from 'next/link';
-import HeaderSlider from './ui/HeaderSlider';
-import Logo from './ui/Logo';
-import GenderBar from './ui/GenderBar';
-import UserMenu from './ui/UserMenu';
+import {
+  BasketIcon,
+  HeartIcon,
+  SearchIcon,
+  UserIcon
+} from '@/components/IconsPack'
+import AdditionalNavbar from './ui/AdditionalNavbar'
+import Logo from './ui/Logo'
+import Navbar from './ui/Navbar'
 
 export default function Header() {
   return (
-    <header>
-      {/*Header Slider*/}
-      <div className='hidden bg-amber-500 lg:block'>
-        <div className='container'>
-          <div className='mx-auto w-[400px] py-2'>
-            <HeaderSlider />
-          </div>
-        </div>
-      </div>
+    <header className='pt-11 z-[60] bg-secondary-300 sm:pt-[53px] md:pt-0'>
+      <AdditionalNavbar />
 
-      {/*Main Navbar*/}
-      <div className='bg-amber-300'>
-        <div className='container'>
-          <nav className='flex items-center justify-between pb-2 pt-11 sm:pt-[61px] md:pt-2 lg:items-end lg:pb-5 lg:pt-6'>
-            <GenderBar />
-            <Logo />
-            <UserMenu />
-          </nav>
-        </div>
-      </div>
-
-      <div id='portal-root' />
-
-      {/*Additional Navbar*/}
-      <div className='hidden bg-gray-100 lg:block'>
-        <div className='container'>
-          <div className='flex items-center justify-between py-2.5'>
-            <ul className='flex gap-6 text-sm'>
-              <li>
-                <Link href={'/catalog/new'}>Нові надходження</Link>
-              </li>
-              <li>
-                <Link href={'/catalog/sale'}>Розпродаж</Link>
-              </li>
-              <li>
-                <Link href={'/loyalty'}>Бонусна програма</Link>
-              </li>
-              <li>
-                <Link
-                  href={'/small-clothes'}
-                  className='btn-icon flex items-center gap-1'>
-                  <HeartWithHandIcon />
-                  <span className='text-black'>Є речі, з яких виросли?</span>
-                </Link>
-              </li>
-            </ul>
-
-            <form action='' className='relative w-[242px]'>
-              <input
-                type='text'
-                placeholder='Я шукаю'
-                className='w-full rounded-lg border border-gray-500 bg-gray-100 py-2 pl-3 pr-[38px] text-base placeholder:text-base placeholder:text-gray-900 focus:outline-0'
-              />
-              <button
-                type='submit'
-                className={cn(
-                  'btn-icon',
-                  'absolute right-3 top-1/2 -translate-y-1/2'
-                )}>
-                <SearchIcon />
-              </button>
-            </form>
+      <div className='container'>
+        <div className='flex items-start justify-between pb-1 sm:py-1.5 sm:items-center lg:h-16 xl:gap-4'>
+          <Logo />
+          <Navbar />
+          <div className='flex items-center md:gap-1 xl:gap-2'>
+            <button
+              type='button'
+              className='btn-icon'
+            >
+              <SearchIcon />
+            </button>
+            <button
+              type='button'
+              className='btn-icon'
+            >
+              <BasketIcon />
+            </button>
+            <button
+              type='button'
+              className='btn-icon'
+            >
+              <HeartIcon />
+            </button>
+            <button
+              type='button'
+              className='btn-icon'
+            >
+              <UserIcon />
+            </button>
           </div>
         </div>
       </div>
     </header>
-  );
+  )
 }

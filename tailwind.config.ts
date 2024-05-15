@@ -42,7 +42,7 @@ const config = {
       'indigo-300': '#EBEEFA',
       'indigo-500': '#BFCCF8',
       'indigo-700': '#9DAEE7',
-      'pink-300': '#FBE9F1',
+      'pink-300': '#FFF0F7',
       'pink-500': '#FBBBD7',
       'pink-700': '#EB92B9',
       'blue-500': '#1F93ED',
