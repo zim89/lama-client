@@ -71,7 +71,7 @@
 /*      Sliders      */
 /*********************/
 .heroSlider .slick-dots {
-  @apply bottom-[104px] flex justify-end pr-4 sm:pr-5 md:bottom-6 md:pr-8 lg:pr-[90px];
+  @apply bottom-[224px] flex justify-end pr-4 sm:pr-5 md:bottom-6 md:pr-8 lg:pr-[88px];
 }
 
 .heroSlider .slick-dots li {
