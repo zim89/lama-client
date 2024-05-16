@@ -1,0 +1,27 @@
+.sheetTrigger {
+  @apply size-10 lg:hidden;
+}
+
+.sheetContent {
+  @apply top-[92px] w-full border-0 p-4 pb-8 sm:top-[109px] sm:max-w-[480px] sm:p-5 sm:pb-8 md:top-14;
+}
+
+.accordionItem {
+  @apply border-none p-0;
+}
+
+.accordionTrigger {
+  @apply border-b border-gray-300 py-[14px] text-base/5 font-medium hover:no-underline;
+}
+
+.accordionIcon {
+  @apply text-gray-900 transition-transform duration-300;
+}
+
+.item {
+  @apply border-b border-gray-300;
+}
+
+.itemLink {
+  @apply inline-block py-[14px] pl-5 text-xs text-gray-900;
+}

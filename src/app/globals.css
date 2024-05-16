@@ -9,6 +9,7 @@
   :root {
     --toastify-color-success: #389b48 !important;
     --toastify-color-error: #dc362e !important;
+    --radix-navigation-menu-viewport-width: 100vw !important;
   }
 
   body {
@@ -54,8 +55,9 @@
     @apply flex h-10 w-10 items-center justify-center text-gray-900 transition-colors duration-300 hover:text-black;
   }
 
+  /* new usage */
   .btn-icon {
-    @apply text-gray-900 transition-colors duration-300 hover:text-violet-500;
+    @apply flex size-11 items-center justify-center text-gray-900 transition-colors duration-300 hover:text-black disabled:text-gray-500;
   }
 
   .btn-tertiary {
@@ -76,6 +78,31 @@
 
 .heroSlider .slick-dots li {
   @apply m-0 h-auto w-auto p-0;
+}
+
+/* Nav Slider */
+.navSlider .slick-track {
+  @apply before:hidden after:hidden;
+}
+
+.navSlider .slick-slide {
+  @apply h-[168px] w-[140px] xl:h-[218px] xl:w-[180px];
+}
+
+.navSlider .slick-arrow {
+  @apply before:hidden;
+}
+
+.navSlider .slick-prev {
+  @apply left-0 top-12 z-10 flex size-11 translate-y-0 items-center justify-center rounded-r-3xl bg-white/60 pr-1 text-gray-900 transition-colors duration-300 hover:text-black xl:top-[70px];
+}
+
+.navSlider .slick-next {
+  @apply right-5 top-12 z-10 flex size-11 translate-y-0 items-center justify-center rounded-l-3xl bg-white/60 pl-1 text-gray-900 transition-colors duration-300 hover:text-black xl:top-[70px];
+}
+
+.navSlider .slick-disabled {
+  @apply text-gray-500 transition-colors duration-300 hover:text-gray-500;
 }
 
 /* Main Page: BRANDS */

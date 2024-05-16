@@ -1,0 +1,23 @@
+.accordionItem {
+  @apply border-none;
+}
+
+.accordionTrigger {
+  @apply flex items-center justify-start gap-1 border-b border-gray-300 py-[14px] text-xs font-normal text-gray-900 hover:no-underline data-[state=open]:text-black;
+}
+
+.accordionIcon {
+  @apply transition-transform duration-300;
+}
+
+.item {
+  @apply border-b border-gray-300;
+}
+
+.itemLink {
+  @apply inline-block py-[14px] pl-5 text-xs text-gray-900;
+}
+
+.link {
+  @apply inline-block border-b border-gray-300 py-[14px] pl-5 text-xs text-gray-900;
+}
