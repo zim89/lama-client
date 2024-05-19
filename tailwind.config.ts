@@ -27,13 +27,6 @@ const config = {
       }
     },
     colors: {
-      //   black: '#080709',
-      //   white: '#FFFFFF',
-      // 'gray-100': '#FCFBFE',
-      // 'gray-300': '#E5E5E6',
-      // 'gray-500': '#CCCACD',
-      // 'gray-700': '#99969C',
-      // 'gray-900': '#727076',
       'violet-300': '#FAF6FD',
       'violet-500': '#CD9EFF',
       'violet-700': '#A663EE',
@@ -47,9 +40,6 @@ const config = {
       'pink-700': '#EB92B9',
       'blue-500': '#1F93ED',
       'blue-700': '#1977BF',
-      // 'red-500': '#F50711',
-      // 'green-500': '#0AC213',
-      // 'yellow-500': '#F6F689',
 
       // *** NEW PALLETTE ***
       // Black & White
@@ -95,7 +85,15 @@ const config = {
       'link-700': '#1977BF',
 
       // Text
-      muted: '#616161'
+      muted: '#616161',
+
+      //Hero slider
+      'slide-purple-300': '#C6CCF2',
+      'slide-purple-400': '#BEC5F2',
+      'slide-green-300': '#B4F1E7',
+      'slide-green-400': '#AEEAE0',
+      'slide-yellow-300': '#F5ECCB',
+      'slide-yellow-400': '#F2E6B5'
     },
 
     extend: {
@@ -119,9 +117,6 @@ const config = {
     }
   },
   plugins: [require('tailwindcss-animate')]
-  // future: {
-  //   hoverOnlyWhenSupported: true
-  // }
 } satisfies Config
 
 export default config

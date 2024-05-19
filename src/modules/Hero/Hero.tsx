@@ -5,7 +5,6 @@ import Link from 'next/link'
 import React, { type ReactNode, useState } from 'react'
 import Slider from 'react-slick'
 import { number } from 'zod'
-import { heroSlides } from '@/modules/Hero/lib/data'
 import Title from '@/components/Title'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/shared/lib/utils'
@@ -13,6 +12,7 @@ import styles from './styles/Hero.module.css'
 import NextBtn from './ui/NextBtn'
 import PrevBtn from './ui/PrevBtn'
 import { PriceBgImage } from './ui/PriceBgImage'
+import { heroSlides } from '@/shared/data/hero.data'
 
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -21,8 +21,8 @@ export default function Hero() {
     className: 'heroSlider',
     dots: true,
     fade: true,
-    // autoplay: true,
-    // autoplaySpeed: 7000,
+    autoplay: true,
+    autoplaySpeed: 7000,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -49,9 +49,9 @@ export default function Hero() {
   }
 
   const slidesBg = [
-    'bg-gradient-to-r from-[#C6CCF2] to-[#BEC5F2]',
-    'bg-gradient-to-r from-[#B4F1E7] to-[#AEEAE0]',
-    'bg-gradient-to-r from-[#F5ECCB] to-[#F2E6B5]'
+    'bg-gradient-to-r from-slide-purple-300 to-slide-purple-400',
+    'bg-gradient-to-r from-slide-green-300 to-slide-green-400',
+    'bg-gradient-to-r from-slide-yellow-300 to-slide-yellow-400'
   ]
 
   return (
@@ -64,7 +64,7 @@ export default function Hero() {
                 key={item.id}
                 className={cn(slidesBg[index])}
               >
-                <div className='relative flex h-ful'>
+                <div className='relative flex h-full'>
                   <Image
                     className={styles.imageWrap}
                     src={item.url}
@@ -112,7 +112,7 @@ export default function Hero() {
                       </span>
                     </div>
                     {item.text ? (
-                      <p className='order-4 mt-8 hidden md:block sm:text-sm/[20px] lg:text-[16px]/[24px]'>
+                      <p className='order-4 mt-8 hidden md:block sm:text-sm/5 lg:text-base'>
                         {item.text}
                       </p>
                     ) : null}
