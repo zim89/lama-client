@@ -18,36 +18,27 @@ import {
   useMediaQuery
 } from './ui/helpers'
 
+const initialCategoryValue = {
+  clothes: false,
+  accessories: false,
+  suits: false,
+  shoes: false,
+  family: false,
+  all_goods: false
+}
+
+console.log(Object.keys(initialCategoryValue))
+
 export default function HelpYouFind() {
   const [gender, setGender] = useState('girl')
   const [age, setAge] = useState('')
   const [isActive, setIsActive] = useState(false)
-  const [categoryValue, setCategoryValue] = useState({
-    clothes: false,
-    accessories: false,
-    suits: false,
-    shoes: false,
-    family: false,
-    all_goods: false
-  })
+  const [categoryValue, setCategoryValue] = useState(initialCategoryValue)
 
   const ageButton = ['0-2', '2-4', '5-7', '8-11', '12-14', '14+']
-  const category = [
-    'clothes',
-    'shoes',
-    'accessories',
-    'family',
-    'suits',
-    'all_goods'
-  ]
+  const category = Object.keys(initialCategoryValue)
 
-  const isSameCategoryActive =
-    categoryValue.accessories ||
-    categoryValue.all_goods ||
-    categoryValue.clothes ||
-    categoryValue.family ||
-    categoryValue.shoes ||
-    categoryValue.suits
+  const isSameCategoryActive = Object.values(categoryValue).some(value => value)
 
   const handleClickGender = (genderValue: string) => {
     setGender(genderValue)
@@ -75,16 +66,7 @@ export default function HelpYouFind() {
   }
 
   const handleResetAll = () => {
-    setGender('girl'),
-      setAge(''),
-      setCategoryValue({
-        clothes: false,
-        accessories: false,
-        suits: false,
-        shoes: false,
-        family: false,
-        all_goods: false
-      })
+    setGender('girl'), setAge(''), setCategoryValue(initialCategoryValue)
     setIsActive(false)
   }
 
@@ -201,56 +183,53 @@ export default function HelpYouFind() {
           )}
           {isActive && !isDesktop ? (
             <div className='mb-16 grid grid-cols-2 gap-4'>
-              {category.map(name => (
-                <>
-                  <button
-                    className='flex h-20 w-[10.25rem] items-center justify-center rounded-[20px] border border-gray-500 text-center text-sm font-medium hover:border-violet-500 hover:bg-violet-300 disabled:cursor-auto disabled:border-gray-300 disabled:text-gray-300 disabled:hover:bg-white sm:w-[13.13rem] md:text-lg'
-                    onClick={() => handleClickCategory(name)}
-                    disabled={age == '0-2' && categoryHash[name].disabled}
-                    style={{
-                      backgroundImage:
-                        categoryValue[name] && isBackgroundChange(name),
-                      backgroundPosition: 'center',
-                      backgroundColor:
-                        (gender == 'boy' && categoryValue[name] && '#EFF2FD') ||
-                        (gender == 'girl' && categoryValue[name] && '#FEEEF5'),
-                      borderColor: categoryValue[name] && '#A663EE'
-                    }}
-                  >
-                    {categoryHash[name].title}
-                  </button>
-                </>
+              {category.map((name, index) => (
+                <button
+                  key={index}
+                  className='flex h-20 w-[10.25rem] items-center justify-center rounded-[20px] border border-gray-500 text-center text-sm font-medium hover:border-violet-500 hover:bg-violet-300 disabled:cursor-auto disabled:border-gray-300 disabled:text-gray-300 disabled:hover:bg-white sm:w-[13.13rem] md:text-lg'
+                  onClick={() => handleClickCategory(name)}
+                  disabled={age == '0-2' && categoryHash[name].disabled}
+                  style={{
+                    backgroundImage:
+                      categoryValue[name] && isBackgroundChange(name),
+                    backgroundPosition: 'center',
+                    backgroundColor:
+                      (gender == 'boy' && categoryValue[name] && '#EFF2FD') ||
+                      (gender == 'girl' && categoryValue[name] && '#FEEEF5'),
+                    borderColor: categoryValue[name] && '#A663EE'
+                  }}
+                >
+                  {categoryHash[name].title}
+                </button>
               ))}
             </div>
           ) : (
             <div className='relative flex h-[18.5rem] w-full lg:h-[26em]'>
-              {ageButton.map(name => (
-                <>
-                  <button
-                    className='absolute z-20 grid cursor-pointer items-center rounded-full border  border-gray-500 text-center text-xs font-medium [word-spacing:1rem]'
-                    id={name}
-                    onClick={() => handleClickAge(name)}
-                    onMouseEnter={changeBackground}
-                    onMouseLeave={backgroundReset}
-                    style={{
-                      backgroundColor:
-                        age == `${name}` &&
-                        hashColors[gender].backgroundColorAge,
-                      top: isAgeButtonTop(name),
-                      left: isAgeButtonLeft(name),
-                      width: isDesktopTablet
-                        ? hashAgeFor375[name].width
-                        : hashAge[name].width,
-                      height: isDesktopTablet
-                        ? hashAgeFor375[name].height
-                        : hashAge[name].height,
-                      border: age == `${name}` && 'none'
-                    }}
-                  >
-                    {name}
-                    <br /> років
-                  </button>
-                </>
+              {ageButton.map((name, index) => (
+                <button
+                  key={index}
+                  className='absolute z-20 grid cursor-pointer items-center rounded-full border  border-gray-500 text-center text-xs font-medium [word-spacing:1rem]'
+                  id={name}
+                  onClick={() => handleClickAge(name)}
+                  onMouseEnter={changeBackground}
+                  onMouseLeave={backgroundReset}
+                  style={{
+                    backgroundColor:
+                      age == `${name}` && hashColors[gender].backgroundColorAge,
+                    top: isAgeButtonTop(name),
+                    left: isAgeButtonLeft(name),
+                    width: isDesktopTablet
+                      ? hashAgeFor375[name].width
+                      : hashAge[name].width,
+                    height: isDesktopTablet
+                      ? hashAgeFor375[name].height
+                      : hashAge[name].height,
+                    border: age == `${name}` && 'none'
+                  }}
+                >
+                  {name}
+                  <br /> років
+                </button>
               ))}
               <div className='relative left-[70px] top-[60px] z-10 xs:h-[12.75rem] sm:left-[118.5px] md:left-[75px] md:top-[83px]'>
                 <Image
@@ -261,13 +240,11 @@ export default function HelpYouFind() {
                 />
               </div>
               {!isSameCategoryActive && (
-                <>
-                  <div className='md:rights-[246px] relative right-[8px] top-[155px] h-0 sm:left-[35.88px] md:left-[-10px] md:top-[174px] lg:left-[-45px] lg:top-[231px] xl:top-[246px]'>
-                    <p className='text-sm font-medium text-gray-900 lg:text-lg'>
-                      {hashHeightText[age]}
-                    </p>
-                  </div>
-                </>
+                <div className='md:rights-[246px] relative right-[8px] top-[155px] h-0 sm:left-[35.88px] md:left-[-10px] md:top-[174px] lg:left-[-45px] lg:top-[231px] xl:top-[246px]'>
+                  <p className='text-sm font-medium text-gray-900 lg:text-lg'>
+                    {hashHeightText[age]}
+                  </p>
+                </div>
               )}
             </div>
           )}
@@ -311,23 +288,21 @@ export default function HelpYouFind() {
               />
             </div>
             <div className='hidden grid-cols-2 md:mb-8 md:grid md:w-[22.13rem] md:gap-5 md:pl-10 lg:w-[29.38rem] lg:pl-0 xl:mb-16 xl:w-[36.75rem] xl:gap-6 '>
-              {category.map(name => (
-                <>
-                  <button
-                    className='rounded-[20px] border border-gray-500 text-center text-sm font-medium hover:border-violet-500 hover:bg-violet-300 disabled:cursor-auto disabled:border-gray-300 disabled:text-gray-300 disabled:hover:bg-white md:w-[9.25rem] md:py-5 lg:h-20 lg:w-[14rem] xl:min-w-[17.63rem] xl:py-7 xl:text-lg'
-                    onClick={() => handleClickCategory(name)}
-                    disabled={age == '0-2' && categoryHash[name].disabled}
-                    style={{
-                      backgroundColor: categoryValue[name] && '#FAF6FD',
-                      borderColor: categoryValue[name] && '#A663EE'
-                    }}
-                  >
-                      backgroundColor: categoryValue[name] ? '#FAF6FD' : '',
-                      borderColor: categoryValue[name] ? '#A663EE' : '',
-                    }}>
-                    {categoryHash[name].title}
-                  </button>
-                </>
+              {category.map((name, index) => (
+                <button
+                  key={index}
+                  className='rounded-[20px] border border-gray-500 text-center text-sm font-medium hover:border-violet-500 hover:bg-violet-300 disabled:cursor-auto disabled:border-gray-300 disabled:text-gray-300 disabled:hover:bg-white md:w-[9.25rem] md:py-5 lg:h-20 lg:w-[14rem] xl:min-w-[17.63rem] xl:py-7 xl:text-lg'
+                  onClick={() => handleClickCategory(name)}
+                  disabled={age == '0-2' && categoryHash[name].disabled}
+                  style={{
+                    backgroundColor: categoryValue[name] && '#FAF6FD',
+                    borderColor: categoryValue[name] && '#A663EE',
+                    backgroundColor: categoryValue[name] ? '#FAF6FD' : '',
+                    borderColor: categoryValue[name] ? '#A663EE' : ''
+                  }}
+                >
+                  {categoryHash[name].title}
+                </button>
               ))}
             </div>
           </div>

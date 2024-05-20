@@ -5,6 +5,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const formatPrice = (num: number, sufix = '₴') => {
-  return `${new Intl.NumberFormat('ru-RU', { style: 'decimal' }).format(num)} ${sufix}`
+export const formatPrice = (num: number, suffix = '₴') => {
+  return `${new Intl.NumberFormat('ru-RU', { style: 'decimal' }).format(num)} ${suffix}`
 }
