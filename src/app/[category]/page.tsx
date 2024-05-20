@@ -15,5 +15,9 @@ export default function page({ params }: { params: { category: string } }) {
 
   if (!category) notFound()
 
-  return <div className='uppercase'>{params.category} page</div>
+  return (
+    <div className='container'>
+      <div className='uppercase'>{params.category} page</div>
+    </div>
+  )
 }
