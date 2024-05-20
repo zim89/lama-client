@@ -1,3 +1,4 @@
+import FeaturesSection from '@/modules/FeaturesSection'
 import HelpYouFind from '@/modules/HelpYouFind'
 import Hero from '@/modules/Hero'
 import News from '@/modules/News/News'
@@ -7,14 +8,14 @@ import TopSection from '@/modules/TopSection/TopSection'
 
 export default function Home() {
   return (
-    <>
+    <div className='pb-10 sm:pb-11 md:pb-14 lg:pb-16 xl:pb-20'>
       <Hero />
-      {/* <Brands /> */}
       <HelpYouFind />
       <TopSection />
       <News />
       <Toddler />
       <OnSaleSection />
-    </>
+      <FeaturesSection />
+    </div>
   )
 }
