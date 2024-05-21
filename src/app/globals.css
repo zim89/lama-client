@@ -26,13 +26,12 @@
     @apply pb-20 pt-5 sm:pb-[88px] sm:pt-6 md:pb-28 md:pt-2 lg:pb-32 lg:pt-5 xl:pb-40 xl:pt-6;
   }
 
-  /*FIXME: duplicate heading-2*/
-  .heading {
-    @apply text-2xl/[28px] font-medium sm:text-[28px]/[32px] md:text-[32px]/[36px] lg:text-4xl/[44px];
+  .heading-2 {
+    @apply text-2xl/7 font-medium sm:text-[28px]/8 md:text-4xl/[44px];
   }
 
-  .heading-2 {
-    @apply text-2xl/[28px] font-medium sm:text-[28px]/[32px] md:text-[32px]/[36px] lg:text-4xl/[44px];
+  .heading-3 {
+    @apply text-base/5 font-medium sm:text-lg/6 lg:text-2xl/7;
   }
 
   .heading-4 {
