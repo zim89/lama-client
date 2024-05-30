@@ -1,0 +1,11 @@
+.navBar {
+  @apply absolute -top-16 right-0 z-10 flex gap-0 sm:-top-[76px] md:-top-20 lg:-top-[86px] xl:-top-[90px];
+}
+
+.navButton {
+  @apply static size-10 translate-y-0 rounded-none border-none text-gray-900 disabled:text-gray-500;
+}
+
+.carouselItem {
+  @apply basis-1/2 md:basis-1/3 lg:basis-1/4;
+}

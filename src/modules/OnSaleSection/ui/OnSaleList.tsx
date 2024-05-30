@@ -1,7 +1,8 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
-import ProductCard from '@/components/ProductCard'
+import ProductCard from '@/components/ProductCard/ProductCard'
+import ProductCardEmpty from '@/components/ProductCard/ProductCardEmpty'
 import ProductListSkeleton from '@/components/skeletons/ProductListSkeleton'
 import { QUERY_KEYS } from '@/shared/constants/query.constants'
 import { Product } from '@/shared/types/product.types'
@@ -31,30 +32,25 @@ export default function OnSaleList() {
 
       {!isLoading && !isError && data && (
         <>
-          <ul
-            className={
-              'grid grid-cols-2 gap-4 md:hidden lg:grid lg:grid-cols-4 lg:gap-5 xl:gap-6'
-            }
-          >
-            {data?.slice(0, 4).map((product: Product, index) => (
+          <ul className='grid grid-cols-2 gap-4 md:hidden md:grid-cols-3 md:gap-5 lg:grid lg:grid-cols-4 xl:gap-6'>
+            {data?.slice(0, 3).map((product: Product) => (
               <li key={product.id}>
-                <ProductCard
-                  product={product}
-                  lastItem={index === 3}
-                />
+                <ProductCard product={product} />
               </li>
             ))}
+            <li>
+              <ProductCardEmpty product={data[3]} />
+            </li>
           </ul>
-
-          <ul className={'hidden md:grid md:grid-cols-3 md:gap-4 lg:hidden'}>
-            {data?.slice(0, 6).map((product: Product, index) => (
+          <ul className='hidden md:grid md:grid-cols-3 md:gap-5 lg:hidden'>
+            {data?.slice(0, 5).map((product: Product) => (
               <li key={product.id}>
-                <ProductCard
-                  product={product}
-                  lastItem={index === 5}
-                />
+                <ProductCard product={product} />
               </li>
             ))}
+            <li>
+              <ProductCardEmpty product={data[5]} />
+            </li>
           </ul>
         </>
       )}

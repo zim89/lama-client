@@ -39,7 +39,7 @@
   }
 
   .title {
-    @apply mb-8 text-2xl/[28px] font-medium sm:mb-10 sm:text-[28px]/[32px] md:mb-11 md:text-[32px]/[36px] lg:text-4xl/[44px] xl:mb-12;
+    @apply mb-8 text-2xl/7 font-medium sm:mb-10 sm:text-[28px]/8 md:mb-11 md:text-[32px]/9 lg:text-4xl/[44px] xl:mb-12;
   }
 
   .btn-primary {
@@ -102,6 +102,11 @@
 
 .navSlider .slick-disabled {
   @apply text-gray-500 transition-colors duration-300 hover:text-gray-500;
+}
+
+/* Top slider */
+.topSlider .slick-track {
+  @apply flex gap-4;
 }
 
 /* Main Page: BRANDS */

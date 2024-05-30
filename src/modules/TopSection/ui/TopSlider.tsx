@@ -1,13 +1,21 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
-import ProductCard from '@/components/ProductCard'
+import ProductCard from '@/components/ProductCard/ProductCard'
 import ProductListSkeleton from '@/components/skeletons/ProductListSkeleton'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel'
 import { QUERY_KEYS } from '@/shared/constants/query.constants'
 import { Product } from '@/shared/types/product.types'
+import styles from '../styles/TopSlider.module.css'
 import { productService } from '@/shared/services/product.service'
 
-export default function TopList() {
+export default function TopSlider() {
   const { isLoading, data, isError, error } = useQuery({
     queryKey: [QUERY_KEYS.TOP],
     queryFn: () => productService.getTopProducts()
@@ -31,32 +39,27 @@ export default function TopList() {
 
       {!isLoading && !isError && data && (
         <>
-          <ul
-            className={
-              'grid grid-cols-2 gap-4 md:hidden lg:grid lg:grid-cols-4 lg:gap-5 xl:gap-6'
-            }
+          <Carousel
+            opts={{
+              align: 'start',
+              slidesToScroll: 2
+            }}
           >
-            {data?.slice(0, 4).map((product: Product, index) => (
-              <li key={product.id}>
-                <ProductCard
-                  product={product}
-                  lastItem={index === 3}
-                />
-              </li>
-            ))}
-          </ul>
-
-          <ul className={'hidden md:grid md:grid-cols-3 md:gap-4 lg:hidden'}>
-            {data?.slice(0, 6).map((product: Product, index) => (
-              <li key={product.id}>
-                <ProductCard
-                  product={product}
-                  lastItem={index === 5}
-                  heart={true}
-                />
-              </li>
-            ))}
-          </ul>
+            <CarouselContent>
+              {data.map((product: Product) => (
+                <CarouselItem
+                  key={product.id}
+                  className={styles.carouselItem}
+                >
+                  <ProductCard product={product} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className={styles.navBar}>
+              <CarouselPrevious className={styles.navButton} />
+              <CarouselNext className={styles.navButton} />
+            </div>
+          </Carousel>
         </>
       )}
     </>

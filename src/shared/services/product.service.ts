@@ -2,10 +2,10 @@ import type { Product, ProductsResponse } from '@/shared/types/product.types'
 import { axiosBase } from '@/shared/api/interceptors'
 
 class ProductService {
-  // private BASE_URL = '/products'
+  private BASE_URL = '/products'
 
   async getTopProducts() {
-    const response = await axiosBase.get<Product[]>('/top')
+    const response = await axiosBase.get<Product[]>(this.BASE_URL + '/rating')
     return response.data
   }
 
