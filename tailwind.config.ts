@@ -27,6 +27,7 @@ const config = {
       }
     },
     colors: {
+      current: 'currentColor',
       'violet-300': '#FAF6FD',
       'violet-500': '#CD9EFF',
       'violet-700': '#A663EE',

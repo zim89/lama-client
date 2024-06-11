@@ -5,6 +5,7 @@ import News from '@/modules/News/News'
 import OnSaleSection from '@/modules/OnSaleSection'
 import Toddler from '@/modules/Toddler/Toddler'
 import TopSection from '@/modules/TopSection/TopSection'
+import { Rating } from '@/components/Rating'
 
 export default function Home() {
   return (

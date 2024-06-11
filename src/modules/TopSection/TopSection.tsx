@@ -3,7 +3,7 @@ import {
   QueryClient,
   dehydrate
 } from '@tanstack/react-query'
-import TopList from '@/modules/TopSection/ui/TopList'
+import TopSlider from '@/modules/TopSection/ui/TopSlider'
 import { QUERY_KEYS } from '@/shared/constants/query.constants'
 import { productService } from '@/shared/services/product.service'
 
@@ -20,7 +20,7 @@ export default async function TopSection() {
       <div className='container'>
         <h2 className='title'>Наш топ</h2>
         <HydrationBoundary state={dehydrate(queryClient)}>
-          <TopList />
+          <TopSlider />
         </HydrationBoundary>
       </div>
     </div>

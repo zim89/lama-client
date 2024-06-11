@@ -5,6 +5,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const formatPrice = (num: number, suffix = '₴') => {
-  return `${new Intl.NumberFormat('ru-RU', { style: 'decimal' }).format(num)} ${suffix}`
+export const formatImageUrl = (url: string) => {
+  const formattedUrl = url.replace('http://localhost:8000', '')
+
+  return process.env.NEXT_PUBLIC_MEDIA_URL + formattedUrl
 }

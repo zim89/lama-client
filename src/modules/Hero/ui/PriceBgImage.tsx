@@ -7,7 +7,6 @@ export const PriceBgImage = ({
   index: number
   className: string
 }) => {
-  console.log(index, 'height', index === 3 ? '52' : '32')
   return (
     <svg
       className={cn(

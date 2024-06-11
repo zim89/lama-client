@@ -27,8 +27,6 @@ const initialCategoryValue = {
   all_goods: false
 }
 
-console.log(Object.keys(initialCategoryValue))
-
 export default function HelpYouFind() {
   const [gender, setGender] = useState('girl')
   const [age, setAge] = useState('')
