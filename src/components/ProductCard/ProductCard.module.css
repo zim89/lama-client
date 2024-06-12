@@ -1,9 +1,9 @@
 .wrap {
-  @apply relative h-[252px] w-[164px] cursor-pointer overflow-hidden rounded-md border border-gray-300 sm:h-[296px] sm:w-[210px] md:h-[310px] md:w-[229px] lg:h-[306px] lg:w-[225px] xl:h-[338px] xl:w-[282px];
+  @apply relative h-[252px] w-[164px] cursor-pointer overflow-hidden rounded-md border border-gray-300 sm:h-[296px] sm:w-[210px] sm:rounded-lg md:h-[310px] md:w-[229px] md:rounded-xl lg:h-[306px] lg:w-[225px] xl:h-[338px] xl:w-[282px] xl:rounded-2xl;
 }
 
 .favButton {
-  @apply absolute left-2 top-2 z-10 xl:left-3 xl:top-3;
+  @apply absolute right-1 top-1 z-10 sm:right-1.5 sm:top-1.5 md:right-2 md:top-2;
 }
 
 .imageWrap {
@@ -15,7 +15,7 @@
 }
 
 .title {
-  @apply mb-1.5 line-clamp-2 h-8 text-xs sm:h-10 sm:text-sm lg:line-clamp-1 lg:h-5;
+  @apply line-clamp-2 h-8 text-xs sm:h-10 sm:text-sm lg:line-clamp-1 lg:h-auto;
 }
 
 .rating {
@@ -28,7 +28,4 @@
 
 .textDiscount {
   @apply text-xs font-normal text-gray-500 line-through sm:text-sm/[18px];
-}
-
-.test {
 }
