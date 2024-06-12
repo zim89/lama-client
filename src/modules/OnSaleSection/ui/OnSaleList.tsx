@@ -32,7 +32,7 @@ export default function OnSaleList() {
 
       {!isLoading && !isError && data && (
         <>
-          <ul className='grid grid-cols-2 gap-4 md:hidden md:grid-cols-3 md:gap-5 lg:grid lg:grid-cols-4 xl:gap-6'>
+          <ul className='grid grid-cols-2 gap-4 md:hidden'>
             {data?.slice(0, 3).map((product: Product) => (
               <li key={product.id}>
                 <ProductCard product={product} />
@@ -43,14 +43,18 @@ export default function OnSaleList() {
             </li>
           </ul>
           <ul className='hidden md:grid md:grid-cols-3 md:gap-5 lg:hidden'>
-            {data?.slice(0, 5).map((product: Product) => (
+            {data?.slice(0, 6).map((product: Product) => (
               <li key={product.id}>
                 <ProductCard product={product} />
               </li>
             ))}
-            <li>
-              <ProductCardEmpty product={data[5]} />
-            </li>
+          </ul>
+          <ul className='hidden lg:grid lg:grid-cols-4 lg:gap-5 xl:gap-6'>
+            {data?.slice(0, 4).map((product: Product) => (
+              <li key={product.id}>
+                <ProductCard product={product} />
+              </li>
+            ))}
           </ul>
         </>
       )}
